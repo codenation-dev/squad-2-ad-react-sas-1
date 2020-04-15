@@ -21,10 +21,14 @@ class ProductDetail extends React.Component {
 
             <div className="icon-images">
 
+
+
+
+
               <img src="https://source.unsplash.com/500x600" alt="nome do produto" />
               <img src="https://source.unsplash.com/500x600" alt="nome do produto" />
               <img src="https://source.unsplash.com/500x600" alt="nome do produto" />
-              
+
             </div>
 
           </div>
