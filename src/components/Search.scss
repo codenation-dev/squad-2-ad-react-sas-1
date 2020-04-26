@@ -1,0 +1,20 @@
+.search{
+  width: 250px;
+}
+.product__name{
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.product__price{
+  font-size: 1.4em;
+}
+.search{
+  input [type = 'text']{
+    line-height: normal;
+    border: 1px solid #c3c3c3;
+    border-radius: 5px;
+    width: 200px;
+    height: 28px;
+    color: #000000;
+  }
+}

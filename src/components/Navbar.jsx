@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ReactComponent as FashionistaLogo } from "../assets/img/fashionista-logo.svg";
+import { ReactComponent as FashionistaLogo } from "../assets/images/fashionista-logo.svg";
 import "./Navbar.scss";
 
 class Navbar extends React.Component {
