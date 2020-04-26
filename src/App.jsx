@@ -7,6 +7,7 @@ import ProductCard from './components/ProductCard';
 import ProductDetail from './components/ProductDetail';
 import Search from './components/Search';
 import Footer from './components/Footer';
+import Cart from './containers/Cart';
 
 class App extends React.Component {
   render() {
@@ -19,6 +20,8 @@ class App extends React.Component {
         <ProductDetail />
 
         <Search />
+
+        <Cart />
 
         <Footer />
       </React.Fragment>
