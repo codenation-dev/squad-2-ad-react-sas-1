@@ -1,0 +1,114 @@
+/* Global Styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-family: 'mont-serrat', sans-serif;
+  font-size: 10px;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+section {
+  padding: 5rem 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 98rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Experience the Outdoors */
+
+.outdoors__offers {
+  padding: 0;
+}
+
+.outdoors__title {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 10rem;
+  color: rgba(0,0,0,.7);
+}
+
+.outdoors__title h3 {
+  font-size: 1.4rem;
+}
+
+.outdoors__title h1 {
+  font-family: 'Aldrich', sans-serif;
+  font-size: 2rem;
+  margin: .5rem 0 1rem;
+}
+
+.outdoors__title p {
+  text-transform: lowercase;
+}
+
+.outdoors__offers__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 2.5rem;
+  margin: 5% 0;
+}
+
+.outdoors__offers__item {
+  height: 30rem;
+  padding: 2rem;
+  color: #FAFAFA;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 0;
+}
+
+.outdoors__offers__item :before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(224, 54, 156, 0.20) 0%, rgba(81, 108, 240, 0.20) 100%);
+  z-index: -1;
+}
+
+.outdoors__offers__item i {
+  font-size: 4rem;
+  color: #EB648C;
+}
+
+.outdoors__offers__item h1{
+  font-family: 'Aldrich',sans-serif;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  margin: 2rem 0;
+}
+
+
