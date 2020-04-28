@@ -63,3 +63,22 @@
   left: 0;
   margin-top: -5px;
 }
+
+/*TABLET*/
+@media screen and (max-width: 650px) {
+  .navbar__container {
+    width: 400px;
+    margin: 0 auto;
+  }
+}
+
+/*TABLET*/
+@media screen and (max-width: 950px) {
+  .navbar__container {
+    width: 700px;
+    margin: 0 auto;
+  }
+
+}
+
+
