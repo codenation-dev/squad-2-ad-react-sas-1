@@ -57,6 +57,9 @@
   padding-right: 3%;
 
   .icon__images {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
     img {
       height: 80px;
       margin-right: 10px;
