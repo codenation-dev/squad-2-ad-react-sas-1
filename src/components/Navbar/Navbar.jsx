@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ReactComponent as FashionistaLogo } from "../assets/images/fashionista-logo.svg";
+import { ReactComponent as FashionistaLogo } from "../../assets/images/fashionista-logo.svg";
 import "./Navbar.scss";
 
 class Navbar extends React.Component {
@@ -28,7 +28,7 @@ class Navbar extends React.Component {
               <div className="navbar__item">
                 <ion-icon name="cart-outline"></ion-icon>
                 {cartItems.length > 0 && (
-                  <span class="navbar__item__cart__item-count">
+                  <span className="navbar__item__cart__item-count">
                     {cartItems.length}
                   </span>
                 )}
