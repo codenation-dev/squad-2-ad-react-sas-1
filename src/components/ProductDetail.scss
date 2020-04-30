@@ -1,8 +1,9 @@
-
+ @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
 .product {
 
-  font-family: arial;
+  margin-top: 100px;
+  font-family: 'Open Sans', sans-serif;
 
   img {
     max-width: 100%;
@@ -17,18 +18,29 @@
 }
 
 .product__title {
-
   color: black;
   font-weight: bold;
   font-size: 1.5em;
-  font-family: arial;
-  padding: 20px 10%;
-  text-align: Left;
 
-  h2 {
+  .product__new {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
     text-align: center;
+    white-space: nowrap;
+    color: #212529;
+    background-color: #ffc107;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   }
 
+  h2 {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .product__details {
@@ -37,20 +49,26 @@
 }
 
 .product__image, .product__details {
-  float: left;
-  width: 40%;
+  flex-basis: 40%;
 }
 
 .product__image {
 
   padding-right: 3%;
 
-  .icon-images {
+  .icon__images {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
     img {
       height: 80px;
-      margin: 0 10px;
+      margin-right: 10px;
       cursor: pointer;
       border: 1px solid #e5e5e5;
+    }
+    a {
+      margin: 0;
+      padding: 0;
     }
   }
 
@@ -58,21 +76,24 @@
 
 .product__price {
 
-  margin-top: 20%;
+  margin-top: 40px;
 
-  .product__price_price {
+  .product__price__price {
     color: black;
     font-weight: bold;
     font-size: 2em;
     padding-right: 10px;
   }
 
-  .product__price_offer {
-    color: black;
-    border-radius: 3px;
-    padding: 1px 3px;
-    font-size: .7em;
+  .product__price__discount {
+    display: block;
+    font-weight: bold;
+    color: crimson;
+    text-decoration: line-through;
+    margin: 10px 0;
   }
+
+  
 
 }
 
@@ -83,19 +104,21 @@
 }
 
 .product__size {
+
   margin: 20px 0;
+  
   span {
     display: inline-block;
     width: 35px;
     border: 1px solid #999;
     text-align: center;
     padding: 1px 2px;
-    margin: 0 5px;
+    margin-right: 5px;
     text-transform: uppercase;
     cursor: pointer;
     &.active {
       color: #fff;
-      background: #008080;
+      background: #424242;
     }
   }
 }
@@ -103,19 +126,22 @@
 .product__quantity {
   input {
     outline: 0;
-    padding: 1px 3px;
+    padding: 0;
     text-align: center;
+    border-radius: 0;
+  
   }
 }
 
 .btn__cart {
 
   margin-top: 10px;
-  border: 1px solid #000;
-  border-radius: 4px;
-  padding: 4px 10px;
+  border: 3px solid #000;
+  padding: 6px 12px;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-weight: bold;
 
   &:hover, &:focus {
     background: black;
