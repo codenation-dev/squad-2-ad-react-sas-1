@@ -9,31 +9,44 @@ class ProductDetail extends React.Component {
 
       <div className="product">
 
-        <div className="product__title">
-          <h2>Nome do produto</h2>
-        </div>
-
         <div className="product__body">
 
           <div className="product__image">
 
-            <img src="https://source.unsplash.com/500x600" className="display-img" alt="nome do produto" />
+            <img src="https://source.unsplash.com/500x600" alt="nome do produto" />
 
-            <div className="icon-images">
+            <div className="icon__images">
 
-              <img src="https://source.unsplash.com/500x600" alt="nome do produto" />
-              <img src="https://source.unsplash.com/500x600" alt="nome do produto" />
-              <img src="https://source.unsplash.com/500x600" alt="nome do produto" />
-              
+              <a href="">
+                <img src="https://source.unsplash.com/500x600" alt="nome do produto" />
+              </a>
+              <a href="">
+                <img src="https://source.unsplash.com/500x600" alt="nome do produto" />
+              </a>
+              <a href="">
+                <img src="https://source.unsplash.com/500x600" alt="nome do produto" />
+              </a>
+              <a href="">
+                <img src="https://source.unsplash.com/500x600" alt="nome do produto" />
+              </a>
+              <a href="">
+                <img src="https://source.unsplash.com/500x600" alt="nome do produto" />
+              </a>
+
             </div>
 
           </div>
 
           <div className="product__details">
 
+            <div className="product__title">
+              <span className="product__new">novo</span>
+              <h2>Nome do produto</h2>
+            </div>
+
             <div className="product__price">
-              <span className="product__price_price">R$ 100,00</span>
-              <span className="product__price_offer">Novo</span>
+              <span className="product__price__price">R$ 100,00</span>
+              <span className="product__price__discount">R$ 50,00</span>
             </div>
 
             <div className="product__desc">
@@ -47,7 +60,7 @@ class ProductDetail extends React.Component {
             </div>
 
             <div className="product__quantity">
-              <input className="quantity" type="number" placeholder="quantity" min="1" max="10" value="1"></input>
+              <input className="quantity" type="number"></input>
             </div>
 
             <div className="add__cart">
