@@ -15,20 +15,24 @@ class ProductDetail extends React.Component {
 
             <img src="https://source.unsplash.com/500x600" alt="nome do produto" />
 
-            <div className="icon__images">
+            <div className="product__images">
 
               <a href="">
                 <img src="https://source.unsplash.com/500x600" alt="nome do produto" />
               </a>
+
               <a href="">
                 <img src="https://source.unsplash.com/500x600" alt="nome do produto" />
               </a>
+
               <a href="">
                 <img src="https://source.unsplash.com/500x600" alt="nome do produto" />
               </a>
+
               <a href="">
                 <img src="https://source.unsplash.com/500x600" alt="nome do produto" />
               </a>
+
               <a href="">
                 <img src="https://source.unsplash.com/500x600" alt="nome do produto" />
               </a>
