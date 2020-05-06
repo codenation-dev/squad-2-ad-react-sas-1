@@ -8,16 +8,23 @@ import Footer from "../../components/Footer";
 
 import Routes from "../../routes";
 
-const App = () => (
-  <div data-testid="app">
-    <BrowserRouter>
-      <Navbar />
 
-      <Routes />
+  
 
-      <Footer />
-    </BrowserRouter>
-  </div>
-);
+  const App = () => {
 
-export default App;
+    return(
+    <div data-testid="app">
+      <BrowserRouter>
+
+        <Navbar />
+
+        <Routes />
+
+        <Footer />
+      </BrowserRouter>
+    </div>
+  )};
+
+  export default App
+

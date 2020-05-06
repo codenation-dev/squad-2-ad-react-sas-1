@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 
 import { ReactComponent as FashionistaLogo } from "../../assets/images/fashionista-logo.svg";
 import "./Navbar.scss";
 import { Link } from 'react-router-dom';
 
     const cartItems = ["t-shirt", "shorts"];
+    
 
-    function Navbar({  openSearch }) {
+    function Navbar() {
+
+      
+
+      // { isOpenSearch &&
+      //   <Search closeSearch={() => setIsOpenSearch(false)} />
+      // }
+
       return (
         <header className="navbar">
           <div className="navbar__container">
@@ -21,7 +29,7 @@ import { Link } from 'react-router-dom';
               </div>
 
               <div className="navbar__menu">
-                <button className="navbar__item" onClick={openSearch}>
+                <button className="navbar__item">
                   <Link to="/search">
                     <ion-icon name="search-outline"></ion-icon>
                   </Link>

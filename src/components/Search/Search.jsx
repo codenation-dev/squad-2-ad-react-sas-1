@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import ReactDOM from "react-dom";
 import axios from "axios";
 
 import './Search.scss';
-
 
 function Search() {
   const [products, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [ isOpenSearch, setIsOpenSearch ] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -42,41 +43,30 @@ function Search() {
         <div className="search__header">
           
           <span className="search__footer-full"> Busca <input type="text" onChange={e => setSearch(e.target.value)}/></span>
-          <button className="search__close" type="button" name="search__close">
-            X
-          </button>
+          <Link to="/">
+            <button className="search__close" type="button" name="search__close" onClick={ () => setIsOpenSearch(!isOpenSearch) }>
+              X
+            </button>
+          </Link>
         </div>
         
         <div className="search__content">
           <ul className="search__items">
             <li className="search__items-list">
             {filteredProducts.map((product, idx) => (
-             <ProductDetail key={idx} {...product} />
+             <ProductDetailSearch key={idx} {...product} />
             ))}
             </li>
           </ul>
         </div>
     </div>
-</aside>
-
-    
-      // <div className="App">
-      //   <h1>Busca</h1>
-      //   <input
-      //     type="text"
-      //     placeholder=" "
-      //     onChange={e => setSearch(e.target.value)}
-      //   />
-      //   {filteredProducts.map((product, idx) => (
-      //     <ProductDetail key={idx} {...product} />
-      //   ))}
-      // </div>
+  </aside>
   );
 }
 
 
 
-const ProductDetail = props => {
+const ProductDetailSearch = props => {
   const { name, image, actual_price } = props;
   return (
     <div className="search">
@@ -91,8 +81,8 @@ const ProductDetail = props => {
   );
 };
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<Search />, rootElement);
+
+
 
 
 export default Search;
