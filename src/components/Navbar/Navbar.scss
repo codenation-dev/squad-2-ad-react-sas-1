@@ -4,7 +4,7 @@
   position: relative;
   width: 100%;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1111);
-  z-index: 10000;
+  //z-index: 10000;
 }
 .navbar__container {
   width: 960px;
@@ -41,8 +41,13 @@
   height: 23px;
   width: 23px;
   margin-right: 23px;
+  a{
+    font-size: 24px;
+    text-decoration: none;
+    color: #000000;
+  }
 }
-.navbar__item:last-of-type {
+.navbar__item:last-of-type  {
   margin-right: 23px;
 }
 
@@ -61,7 +66,7 @@
   box-sizing: border-box;
   position: absolute;
   left: 0;
-  margin-top: -5px;
+  margin-top: -35px;
 }
 
 /*TABLET*/
