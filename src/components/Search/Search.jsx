@@ -71,7 +71,6 @@ function Search() {
 const ProductDetailSearch = props => {
   const { name, image, actual_price } = props;
   return (
-    <React.Fragment>
     <div className="search__description">
       <div className="product__img">
         <Link to="#" className="product__name">
@@ -83,8 +82,6 @@ const ProductDetailSearch = props => {
         <Link to="#" className="product__price">{actual_price}</Link>
       </div>
     </div>
-    <hr/>
-    </React.Fragment>
   );
 };
 
