@@ -1,9 +1,9 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import ProductListRoute from "./ProductListRoute";
-import ProductPageRoute from "./ProductPageRoute";
-import Search from "../components/Search/Search";
+import ProductListRoute from './ProductListRoute';
+import Cart from '../containers/Cart';
+import Search from '../components/Search/Search';
 
 const Routes = () => (
   <Switch>
@@ -15,9 +15,9 @@ const Routes = () => (
       <Search />
     </Route>
 
-    {/* <Route path="/products/:product">
-      <ProductPageRoute />
-    </Route> */}
+    <Route exact path="/cart">
+      <Cart />
+    </Route>
   </Switch>
 );
 
