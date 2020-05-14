@@ -1,0 +1,14 @@
+.fas.fa-spinner {
+  font-size: 50px;
+  color: rgba(0, 0, 0, .2);
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%); //top e left em relação a largura do elemento
+  animation: gira-gira infinite 1s;
+}
+
+@keyframes gira-gira {
+  from { transform: rotate(0deg) }
+  to { transform:rotate(360deg) }
+}

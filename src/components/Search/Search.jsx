@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
+import Loading from '../Loading/Loading';
+
 import './Search.scss';
 
 function Search() {
@@ -13,15 +15,12 @@ function Search() {
   const [isOpenSearch, setIsOpenSearch] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
+    //setLoading(true);
     axios
       .get('https://5e9935925eabe7001681c856.mockapi.io/api/v1/catalog')
       .then((res) => {
         setProduct(res.data);
         setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
       });
   }, []);
 
@@ -34,14 +33,14 @@ function Search() {
   }, [search, products]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   return (
     <aside className="search__overlay">
       <div className="search__sidebar">
         <div className="search__header">
-          <span className="search__footer-full">
+          <span className="search__title">
             {' '}
             Busca{' '}
             <input type="text" onChange={(e) => setSearch(e.target.value)} />
@@ -75,13 +74,24 @@ function Search() {
 const ProductDetailSearch = (props) => {
   const { name, image, actual_price } = props;
   return (
-    <div className="search">
-      <p className="product__name">
-        <img src={image} alt={name} style={{ width: '40px', height: '40px' }} />
-      </p>
-      <p className="product__name">{name}</p>
-      <p className="product__price">{actual_price}</p>
-      <hr />
+    <div className="search__description">
+      <div className="product__img">
+        <Link to="#" className="product__name">
+          <img
+            src={image}
+            alt={name}
+            style={{ width: '70px', height: '70px' }}
+          />
+        </Link>
+      </div>
+      <div className="product__info">
+        <Link to="#" className="product__name">
+          {name}
+        </Link>
+        <Link to="#" className="product__price">
+          {actual_price}
+        </Link>
+      </div>
     </div>
   );
 };
