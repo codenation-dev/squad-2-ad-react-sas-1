@@ -14,10 +14,6 @@ const Routes = () => (
     <Route exact path="/search">
       <Search />
     </Route>
-
-    {/* <Route path="/products/:product">
-      <ProductPageRoute />
-    </Route> */}
   </Switch>
 );
 
