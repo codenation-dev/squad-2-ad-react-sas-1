@@ -33,7 +33,7 @@ function Navbar() {
             {searchStatus && <Search onClick={handleOpenSearch} />}
 
             <button className="navbar__item">
-              <Link to="#">
+              <Link to="/cart">
                 <ion-icon name="cart-outline"></ion-icon>
                 {cartItems.length > 0 && (
                   <span className="navbar__item__cart__item-count">
