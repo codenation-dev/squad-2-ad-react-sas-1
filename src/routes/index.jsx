@@ -15,13 +15,12 @@ const Routes = () => (
       <Search />
     </Route>
 
-<<<<<<< HEAD
     <Route exact path="/cart">
       <Cart />
-=======
+    </Route>
+
     <Route path="/product/:id">
       <ProductRoute />
->>>>>>> f6dd10ea03256c705d561a329815bcbd8c9ad0ee
     </Route>
   </Switch>
 );
