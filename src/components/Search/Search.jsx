@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 
 import Loading from '../Loading/Loading';
@@ -45,16 +44,14 @@ function Search() {
             Busca{' '}
             <input type="text" onChange={(e) => setSearch(e.target.value)} />
           </span>
-          <Link to="/">
-            <button
-              className="search__close"
-              type="button"
-              name="search__close"
-              onClick={() => setIsOpenSearch(!isOpenSearch)}
-            >
-              X
-            </button>
-          </Link>
+          <button
+            className="search__close"
+            type="button"
+            name="search__close"
+            onClick={() => setIsOpenSearch(!isOpenSearch)}
+          >
+            X
+          </button>
         </div>
 
         <div className="search__content">
