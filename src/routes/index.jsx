@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import ProductListRoute from './ProductListRoute';
-import ProductPageRoute from './ProductPageRoute';
+import ProductRoute from './ProductRoute';
 import Search from '../components/Search/Search';
 
 const Routes = () => (
@@ -13,6 +13,10 @@ const Routes = () => (
 
     <Route exact path="/search">
       <Search />
+    </Route>
+
+    <Route path="/product/:id">
+      <ProductRoute />
     </Route>
   </Switch>
 );
