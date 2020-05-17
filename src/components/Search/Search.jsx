@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import ReactDOM from "react-dom";
 import axios from "axios";
 
 import Loading from "../Loading/Loading";
@@ -13,8 +12,8 @@ function Search() {
   const [search, setSearch] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [ isOpenSearch, setIsOpenSearch ] = useState(false);
-  
 
+  
   useEffect(() => {
     //setLoading(true);
     axios
@@ -23,7 +22,6 @@ function Search() {
         setProduct(res.data);
         setLoading(false);
       })
-      
   }, []);
 
   useEffect(() => {
@@ -44,11 +42,10 @@ function Search() {
         <div className="search__header">
           
           <span className="search__title"> Busca <input type="text" onChange={e => setSearch(e.target.value)}/></span>
-          <Link to="/">
-            <button className="search__close" type="button" name="search__close" onClick={ () => setIsOpenSearch(!isOpenSearch) }>
+            <button className="search__close" type="button" name="search__close" 
+            onClick={ () => setIsOpenSearch(!isOpenSearch) }>
               X
             </button>
-          </Link>
         </div>
         
         <div className="search__content">
@@ -57,16 +54,13 @@ function Search() {
             {filteredProducts.map((product, idx) => (
              <ProductDetailSearch key={idx} {...product} />
             ))}
-            
             </li>
           </ul>
         </div>
-    </div>
-  </aside>
+      </div>
+    </aside>
   );
 }
-
-
 
 const ProductDetailSearch = props => {
   const { name, image, actual_price } = props;

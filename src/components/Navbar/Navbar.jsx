@@ -1,19 +1,18 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
+
+import Search from "../Search";
 
 import { ReactComponent as FashionistaLogo } from "../../assets/images/fashionista-logo.svg";
 import "./Navbar.scss";
 import { Link } from 'react-router-dom';
 
     const cartItems = ["t-shirt", "shorts"];
-    
 
     function Navbar() {
 
-      
-
-      // { isOpenSearch &&
-      //   <Search closeSearch={() => setIsOpenSearch(false)} />
-      // }
+      const [searchStatus, setSearchStatus] = useState(false);
+      const handleClick = () => setSearchStatus(true);
+      const handleOpenSearch = () => setSearchStatus(false);
 
       return (
         <header className="navbar">
@@ -29,12 +28,13 @@ import { Link } from 'react-router-dom';
               </div>
 
               <div className="navbar__menu">
-                <button className="navbar__item">
-                  <Link to="/search">
+                <button className="navbar__item" onClick={handleClick}>
                     <ion-icon name="search-outline"></ion-icon>
-                  </Link>
                 </button>
-
+                {searchStatus && (
+                  <Search onClick={handleOpenSearch}/>
+                )}
+       
               <button className="navbar__item">
                 <Link to="#">
                   <ion-icon name="cart-outline"></ion-icon>
