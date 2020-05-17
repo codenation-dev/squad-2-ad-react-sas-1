@@ -6,7 +6,8 @@ import Loading from '../Loading/Loading';
 
 import './Search.scss';
 
-function Search() {
+function Search(props) {
+  const { handleClose } = props;
   const [products, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState('');
@@ -48,7 +49,7 @@ function Search() {
             className="search__close"
             type="button"
             name="search__close"
-            onClick={() => setIsOpenSearch(!isOpenSearch)}
+            onClick={handleClose}
           >
             X
           </button>
