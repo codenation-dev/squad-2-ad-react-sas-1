@@ -1,0 +1,17 @@
+.cart__container {
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px;
+  min-height: calc(95vh - 136px); // descontando margin-top: 5% do footer
+}
+.cart__products {
+  padding: 10px 0;
+}
+.product__card__container {
+  width: 40%;
+}
+.cart__summary {
+  padding: 10px 0;
+}
