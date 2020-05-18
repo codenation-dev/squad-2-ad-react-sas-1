@@ -4,7 +4,8 @@ import { Route, Switch } from 'react-router-dom';
 import ProductListRoute from './ProductListRoute';
 import ProductRoute from './ProductRoute';
 import Search from '../components/Search/Search';
-import Cart from '../containers/Cart';
+import Cart from '../components/Cart';
+import ProductDetail from '../components/ProductDetail';
 
 const Routes = () => (
   <Switch>
@@ -20,9 +21,8 @@ const Routes = () => (
       <Cart />
     </Route>
 
-    <Route path="/product/:id">
-      <ProductRoute />
-    </Route>
+    <Route path="/products/:id" component={props => <ProductDetail {...props}/> } />
+
   </Switch>
 );
 

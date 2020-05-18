@@ -13,24 +13,30 @@ function Navbar() {
   const handleClick = () => setSearchStatus(true);
   const handleOpenSearch = () => setSearchStatus(false);
 
+  const handleClose = (searchStatus) => {
+    setSearchStatus(!searchStatus);
+  }
+
   return (
     <header className="navbar">
       <div className="navbar__container">
         <nav className="navbar__wrapper">
           <div className="navbar__logo__wrapper">
-            <a className="navbar__logo__link" href="index.html">
+            <Link to="/" className="navbar__logo__link" >
               <FashionistaLogo
                 className="navbar__logo__img"
                 alt="Fashionista Store"
               />
-            </a>
+            </Link>
           </div>
 
           <div className="navbar__menu">
             <button className="navbar__item" onClick={handleClick}>
               <ion-icon name="search-outline"></ion-icon>
             </button>
-            {searchStatus && <Search onClick={handleOpenSearch} />}
+            {searchStatus && <Search onClick={handleOpenSearch} 
+            handleClose={handleClose} />
+            }
 
             <button className="navbar__item">
               <Link to="/cart">

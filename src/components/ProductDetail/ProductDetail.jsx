@@ -2,10 +2,12 @@ import React from "react";
 
 import "./ProductDetail.scss";
 
-class ProductDetail extends React.Component {
-  render() {
-
-    return (
+const ProductDetail = (props) => {
+  console.log(props); 
+  // const productUrlName = 'bolsa-azul'
+  // const product = useSelector(state => state.products.find(product => product.name === productUrlName))
+  
+  return (
 
       <div className="product">
 
@@ -73,7 +75,7 @@ class ProductDetail extends React.Component {
 
       </div>
     );
-  }
+  
 }
 
 export default ProductDetail;
