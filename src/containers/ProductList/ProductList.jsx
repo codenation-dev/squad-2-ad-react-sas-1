@@ -9,7 +9,7 @@ const ProductList = ({ products }) => {
     <div className="container__products" data-testid="product-list">
       <section className="product__list">
         {products &&
-          products.map((product) => <ProductCard productInfo={product} />)}
+          products.map((product,idx) => <ProductCard key={`${product.name}${idx}`} productInfo={product} />)}
       </section>
     </div>
   );

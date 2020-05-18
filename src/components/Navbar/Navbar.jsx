@@ -22,12 +22,12 @@ function Navbar() {
       <div className="navbar__container">
         <nav className="navbar__wrapper">
           <div className="navbar__logo__wrapper">
-            <a className="navbar__logo__link" href="index.html">
+            <Link to="/" className="navbar__logo__link" >
               <FashionistaLogo
                 className="navbar__logo__img"
                 alt="Fashionista Store"
               />
-            </a>
+            </Link>
           </div>
 
           <div className="navbar__menu">
