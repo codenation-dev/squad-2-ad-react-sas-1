@@ -31,12 +31,6 @@ const ProductCard = ({ productInfo }) => {
           <span className="product__card__discount__label">
             {productInfo.discount_percentage}
           </span>
-          <ul className="social">
-            <li>
-              <h3>Detalhes</h3>
-              <ion-icon name="cart" onClick={clickHandle} />
-            </li>
-          </ul>
         </div>
         <div className="product__card__content">
           <h3 className="title">
