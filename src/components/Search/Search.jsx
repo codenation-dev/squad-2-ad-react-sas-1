@@ -12,10 +12,8 @@ const Search = (props) => {
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
-  
 
   useEffect(() => {
-    //setLoading(true);
     axios
       .get('https://5e9935925eabe7001681c856.mockapi.io/api/v1/catalog')
       .then((res) => {
@@ -70,33 +68,29 @@ const Search = (props) => {
 }
 
 const ProductDetailSearch = (props) => {
-  const { handleClose } = props;
   const { name, image, actual_price, installments } = props;
   return (
-    <div className="search__description">
+    <Link to={`/products/${name}`} className="search__description">
       <div className="product__img">
-        <Link to={`/products/${name}`}  onClick={handleClose} >
-          <img
-            src={image}
-            alt={name}
-            style={{ width: '70px', height: '70px' }}
-          />
-        </Link>
+        <img src={image} alt={name} style={{ width: '70px', height: '70px' }} />
       </div>
-      <div className="product__info" >
-        <Link to={`/products/${name}`} className="product__name" onClick={handleClose} >
-          {name}
-        </Link>
-        <div className="product__info__price">
-          <Link to={`/products/${name}`} className="product__price-search">
-            {actual_price}
-          </Link>
-          <p className="product_installments">
-            { installments }
-        </p>
+      
+        <div className="product__info">
+          <p className="product__name">
+            {name}
+          </p>
+          
+          
+          <div className="product__info__price">
+          <p className="product__price-search">
+            {actual_price} 
+          </p>
+          <p className="product__installments">
+          {installments}
+          </p>
         </div>
-      </div>
-    </div>
+      </div> 
+    </Link>
   );
 };
 

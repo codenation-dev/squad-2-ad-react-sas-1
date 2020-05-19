@@ -90,6 +90,7 @@
     font-size: 1.2rem;
     text-decoration: none;
     color: #444444;
+    width: 100px;
   }
   .product__price-search{
     font-size: 1.4rem;
@@ -97,21 +98,26 @@
     color: #444444;
     font-weight: bold;
     }
-  p{
+  .product__installments{
     font-size: 11px;
+    text-decoration: none;
+    color: #444444;
   }
+  
 }
 .product__img{
   padding: 10px;
 }
 .product__info{
   display: inline-flex;
-  padding: 5%;
+  padding: 5% 2%;
   justify-content: space-between;
+  width: 200px;
 }
 .product__info__price{
   text-align: right;
   white-space: nowrap;
+  text-decoration: none;
 }
 
 @media only screen and (max-width: 650px) {
@@ -138,6 +144,7 @@
    .product__info {
    display: inline-flex;
    padding: 2%;
+   width: 230px;
    }
    .search__description {
      padding: 0 5%;

@@ -6,7 +6,7 @@ import { ReactComponent as FashionistaLogo } from '../../assets/images/fashionis
 import './Navbar.scss';
 import { Link } from 'react-router-dom';
 
-const cartItems = ['t-shirt', 'shorts'];
+const cartItems = [];
 
 function Navbar() {
   const [searchStatus, setSearchStatus] = useState(false);
@@ -15,14 +15,14 @@ function Navbar() {
 
   const handleClose = (searchStatus) => {
     setSearchStatus(!searchStatus);
-  }
+  };
 
   return (
     <header className="navbar">
       <div className="navbar__container">
         <nav className="navbar__wrapper">
           <div className="navbar__logo__wrapper">
-            <Link to="/" className="navbar__logo__link" >
+            <Link to="/" className="navbar__logo__link">
               <FashionistaLogo
                 className="navbar__logo__img"
                 alt="Fashionista Store"
@@ -34,9 +34,9 @@ function Navbar() {
             <button className="navbar__item" onClick={handleClick}>
               <ion-icon name="search-outline"></ion-icon>
             </button>
-            {searchStatus && <Search onClick={handleOpenSearch} 
-            handleClose={handleClose} />
-            }
+            {searchStatus && (
+              <Search onClick={handleOpenSearch} handleClose={handleClose} />
+            )}
 
             <button className="navbar__item">
               <Link to="/cart">
