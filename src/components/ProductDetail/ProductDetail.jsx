@@ -1,13 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import Loading from '../Loading/';
 
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
-  const { selectedProduct } = useSelector((state) => {
-    return state.products;
-  });
-  console.log('detail', selectedProduct);
+  const selectedProduct = useSelector((state) => state.products.product);
+
+  if (!Object.keys(selectedProduct).length) {
+    return <Loading />;
+  }
 
   return (
     <div className="product">

@@ -1,24 +1,28 @@
 import { productsActionTypes } from '../constants/products';
 
 const INITIAL_STATE = {
-  selectedProduct: {},
-  selectedProductSize: {},
   products: [],
+  product: {}, // mudar para catalogo
 };
 
 export const productsReducer = (state = INITIAL_STATE, action) => {
-  const { type, products, selectedProduct, selectedProductSize } = action;
+  const { type, payload } = action;
   switch (type) {
     case productsActionTypes.GET_PRODUCTS_REQUEST:
       return {
         ...state,
-        products,
+        products: payload,
       };
 
     case productsActionTypes.PRODUCT_DETAIL:
+      // logica da busca por slug(name) + color-slug
+      const { slug, color } = payload;
+      const catalog = state.products;
       return {
         ...state,
-        selectedProduct,
+        product: catalog.find(
+          ({ name, color_slug }) => name === slug && color_slug === color
+        ),
       };
 
     //   return {

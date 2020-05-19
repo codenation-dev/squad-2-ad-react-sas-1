@@ -2,20 +2,22 @@ import { productsActionTypes } from '../constants/products';
 /*
  * Action Creators
  */
-
 /**
- * @returns {{products: *, type: string}}
+ * @returns {{payload: *, type: string}}
  */
-export const getProductsRequest = (products) => {
+export const getProductsRequest = (payload) => {
   return {
     type: productsActionTypes.GET_PRODUCTS_REQUEST,
-    products,
+    payload,
   };
 };
 
-export const productDetail = (selectedProduct) => {
+export const productDetail = ({ slug, color }) => {
   return {
     type: productsActionTypes.PRODUCT_DETAIL,
-    selectedProduct,
+    payload: {
+      slug,
+      color,
+    },
   };
 };
