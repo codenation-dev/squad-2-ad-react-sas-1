@@ -68,7 +68,7 @@ const ProductDetail = () => {
 
           <div className="product__desc">
             <p>
-              VESTIDO CURTO MANGA BUFANTE é o vintage anos 80, super queridinho.
+              {selectedProduct.name} é o vintage anos 80, super queridinho.
               Ideal para um look de festa com muito estilo. Esse vestido curto é
               feito em material acetinado e tem caimento justo ao corpo com
               detalhes franzidos, manga curta bufante e decote quadrado, você

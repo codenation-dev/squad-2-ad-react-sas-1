@@ -19,10 +19,3 @@ export const productDetail = (selectedProduct) => {
     selectedProduct,
   };
 };
-
-// export const deleteTodo = (id) => ({
-//   type: productsActionTypes.DELETE_PRODUCT,
-//   product: {
-//     id,
-//   },
-// });
