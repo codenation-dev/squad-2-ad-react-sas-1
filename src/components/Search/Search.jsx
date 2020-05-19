@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { useHistory  } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 import Loading from '../Loading/Loading';
 
@@ -13,16 +13,8 @@ function Search(props) {
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [isOpenSearch, setIsOpenSearch] = useState(false);
-
- 
-  // const clickHandle = ({productInfo}) => {
-
-  //   history.push(`/products/${productInfo.name}`,{ productInfo })
-  // }
 
   useEffect(() => {
-    //setLoading(true);
     axios
       .get('https://5e9935925eabe7001681c856.mockapi.io/api/v1/catalog')
       .then((res) => {
@@ -90,9 +82,7 @@ const ProductDetailSearch = (props) => {
         </Link>
       </div>
       <div className="product__info">
-        <Link  className="product__name">
-          {name}
-        </Link>
+        <Link className="product__name">{name}</Link>
         <Link to="#" className="product__price-search">
           {actual_price} {installments}
         </Link>

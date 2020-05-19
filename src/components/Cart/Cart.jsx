@@ -13,21 +13,9 @@ const Cart = () => (
         <div className="product__card__container">
           <div className="product__card__grid">
             <div className="product__card__image">
-              {/* <Link to="/">
+              <Link to="/">
                 <img className="pic__1" alt="imagem-do-produto" />
               </Link>
-              <span className="product__card__trend__label">Promoção</span>
-              <span className="product__card__discount__label">
-                discount_percentage
-              </span>
-              <ul className="social">
-                <li>
-                  <Link to="/">
-                    Detalhes
-                    <ion-icon name="cart" />
-                  </Link>
-                </li>
-              </ul> */}
             </div>
             <div className="product__card__content">
               <h3 className="title">

@@ -1,8 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import ProductListRoute from './ProductListRoute';
-import ProductRoute from './ProductRoute';
+import ProductsRoute from './ProductsRoute';
 import Search from '../components/Search/Search';
 import Cart from '../components/Cart';
 import ProductDetail from '../components/ProductDetail';
@@ -10,7 +9,7 @@ import ProductDetail from '../components/ProductDetail';
 const Routes = () => (
   <Switch>
     <Route exact path="/">
-      <ProductListRoute />
+      <ProductsRoute />
     </Route>
 
     <Route exact path="/search">
@@ -21,8 +20,10 @@ const Routes = () => (
       <Cart />
     </Route>
 
-    <Route path="/products/:id" component={props => <ProductDetail {...props}/> } />
-
+    <Route
+      path="/products/:id"
+      component={(props) => <ProductDetail {...props} />}
+    />
   </Switch>
 );
 
