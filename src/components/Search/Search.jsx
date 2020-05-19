@@ -6,13 +6,13 @@ import Loading from '../Loading/Loading';
 
 import './Search.scss';
 
-function Search(props) {
+const Search = (props) => {
   const { handleClose } = props;
   const [products, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [isOpenSearch, setIsOpenSearch] = useState(false);
+  
 
   useEffect(() => {
     //setLoading(true);
@@ -70,11 +70,12 @@ function Search(props) {
 }
 
 const ProductDetailSearch = (props) => {
-  const { name, image, actual_price } = props;
+  const { handleClose } = props;
+  const { name, image, actual_price, installments } = props;
   return (
     <div className="search__description">
       <div className="product__img">
-        <Link to="#" className="product__name">
+        <Link to={`/products/${name}`}  onClick={handleClose} >
           <img
             src={image}
             alt={name}
@@ -82,13 +83,18 @@ const ProductDetailSearch = (props) => {
           />
         </Link>
       </div>
-      <div className="product__info">
-        <Link to="#" className="product__name">
+      <div className="product__info" >
+        <Link to={`/products/${name}`} className="product__name" onClick={handleClose} >
           {name}
         </Link>
-        <Link to="#" className="product__price">
-          {actual_price}
-        </Link>
+        <div className="product__info__price">
+          <Link to={`/products/${name}`} className="product__price-search">
+            {actual_price}
+          </Link>
+          <p className="product_installments">
+            { installments }
+        </p>
+        </div>
       </div>
     </div>
   );
