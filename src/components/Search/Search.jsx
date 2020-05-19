@@ -86,7 +86,7 @@ const ProductDetailSearch = (props) => {
         <Link to="#" className="product__name">
           {name}
         </Link>
-        <Link to="#" className="product__price">
+        <Link to="#" className="product__price-search">
           {actual_price}
         </Link>
       </div>
