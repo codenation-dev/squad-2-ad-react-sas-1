@@ -22,7 +22,7 @@
   justify-content: flex-start;
   margin: 0;
   transition: all 225ms linear;
-  width: 30rem;
+  width: 35rem;
   z-index: 999;
   
   
@@ -84,10 +84,11 @@
   padding: 2% 0;
   box-shadow: 6px 6px 6px -6px #444444;
   margin-bottom: 2px;
-  .product__name, .product__price {
+  .product__name, .product__price-search {
     font-size: 1.2rem;
     text-decoration: none;
     color: #444444;
+    width: 100px;
   }
 }
 .product__info{

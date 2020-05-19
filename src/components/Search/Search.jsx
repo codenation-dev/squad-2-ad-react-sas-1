@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useHistory  } from "react-router-dom";
 
 import Loading from '../Loading/Loading';
 
@@ -13,6 +14,12 @@ function Search(props) {
   const [search, setSearch] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isOpenSearch, setIsOpenSearch] = useState(false);
+
+ 
+  // const clickHandle = ({productInfo}) => {
+
+  //   history.push(`/products/${productInfo.name}`,{ productInfo })
+  // }
 
   useEffect(() => {
     //setLoading(true);
@@ -70,7 +77,7 @@ function Search(props) {
 }
 
 const ProductDetailSearch = (props) => {
-  const { name, image, actual_price } = props;
+  const { name, image, actual_price, installments } = props;
   return (
     <div className="search__description">
       <div className="product__img">
@@ -83,11 +90,11 @@ const ProductDetailSearch = (props) => {
         </Link>
       </div>
       <div className="product__info">
-        <Link to="#" className="product__name">
+        <Link  className="product__name">
           {name}
         </Link>
-        <Link to="#" className="product__price">
-          {actual_price}
+        <Link to="#" className="product__price-search">
+          {actual_price} {installments}
         </Link>
       </div>
     </div>

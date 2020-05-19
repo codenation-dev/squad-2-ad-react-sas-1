@@ -14,27 +14,27 @@ const ProductCard = ({ productInfo }) => {
     history.push(`/products/${productInfo.name}`);
   };
 
-  console.log('card', productInfo);
-
   return (
     <div className="product__card__container">
       <div className="product__card__grid">
-        <div className="product__card__image">
+        <div className="product__card__item">
           <Link to={`/products/${productInfo.name}`}>
-            <img
-              className="pic__1"
-              src={productInfo.image}
-              alt={productInfo.name}
-            />
+            {productInfo.image && (
+              <img
+                className="product__card__image"
+                src={productInfo.image}
+                alt={productInfo.name}
+              />
+            )}
           </Link>
           <span className="product__card__trend__label">Promoção</span>
           <span className="product__card__discount__label">
             {productInfo.discount_percentage}
           </span>
           <ul className="social">
-            <li onClick={clickHandle}>
-              Detalhes
-              <ion-icon name="cart" />
+            <li>
+              <h3>Detalhes</h3>
+              <ion-icon name="cart" onClick={clickHandle} />
             </li>
           </ul>
         </div>
@@ -45,7 +45,9 @@ const ProductCard = ({ productInfo }) => {
             </Link>
           </h3>
           <div className="price discount">
-            <span>{productInfo.regular_price}</span>
+            {productInfo.regular_price == productInfo.actual_price ? null : (
+              <span>{productInfo.regular_price}</span>
+            )}
             {productInfo.actual_price}
           </div>
         </div>
