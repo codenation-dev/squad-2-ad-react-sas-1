@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
 
 import Loading from '../Loading/Loading';
 
 import './Search.scss';
 
-function Search(props) {
+const Search = (props) => {
   const { handleClose } = props;
   const [products, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -71,23 +70,27 @@ function Search(props) {
 const ProductDetailSearch = (props) => {
   const { name, image, actual_price, installments } = props;
   return (
-    <div className="search__description">
+    <Link to={`/products/${name}`} className="search__description">
       <div className="product__img">
-        <Link to="#" className="product__name">
-          <img
-            src={image}
-            alt={name}
-            style={{ width: '70px', height: '70px' }}
-          />
-        </Link>
+        <img src={image} alt={name} style={{ width: '70px', height: '70px' }} />
       </div>
-      <div className="product__info">
-        <Link className="product__name">{name}</Link>
-        <Link to="#" className="product__price-search">
-          {actual_price} {installments}
-        </Link>
-      </div>
-    </div>
+      
+        <div className="product__info">
+          <p className="product__name">
+            {name}
+          </p>
+          
+          
+          <div className="product__info__price">
+          <p className="product__price-search">
+            {actual_price} 
+          </p>
+          <p className="product__installments">
+          {installments}
+          </p>
+        </div>
+      </div> 
+    </Link>
   );
 };
 
