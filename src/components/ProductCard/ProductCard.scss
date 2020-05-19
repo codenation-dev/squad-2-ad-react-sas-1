@@ -30,13 +30,6 @@
       &:before {
         opacity: 1;
       }
-      .pic__1 {
-        opacity: 0;
-      }
-      .pic__2 {
-        opacity: 1;
-        transform: scale(1);
-      }
     }
     .social {
       li {
@@ -63,6 +56,12 @@
     top: 50%;
     left: 10px;
     z-index: 4;
+    h3{
+      color: #fff;
+      font-size: 2em;
+      line-height: 1em;
+      text-transform: uppercase
+    }
     li {
       margin: 0 0 12px;
       opacity: 0;
@@ -70,8 +69,8 @@
       transition: transform 0.3s ease-out 0s;
       a {
         color: #fff;
-        font-size: 22px;
-        transition: all 0.3s;
+        font-size: 5em;
+        transition: all 0.2s ease-in-out;
         &:hover {
           color: #e74c3c;
         }
