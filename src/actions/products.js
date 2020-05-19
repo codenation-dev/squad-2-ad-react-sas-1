@@ -4,33 +4,25 @@ import { productsActionTypes } from '../constants/products';
  */
 
 /**
- * @returns {{payload: *, type: string}}
+ * @returns {{products: *, type: string}}
  */
-export const getProductsRequest = (payload) => {
+export const getProductsRequest = (products) => {
   return {
     type: productsActionTypes.GET_PRODUCTS_REQUEST,
-    payload: { products: [...payload] },
+    products,
   };
 };
 
-// export const FETCH_API = (URL) => ({
-//   type: productsActionTypes.FETCH_API,
-//   payload: {
-//     products: productsList,
-//   },
-// });
-
-// export const addItem = (text) => ({
-//   type: productsActionTypes.ADD_ITEM,
-//   payload: {
-//     id: nextID++,
-//     text: text,
-//   },
-// });
+export const productDetail = (selectedProduct) => {
+  return {
+    type: productsActionTypes.PRODUCT_DETAIL,
+    selectedProduct,
+  };
+};
 
 // export const deleteTodo = (id) => ({
-//   type: productsActionTypes.DELETE_ITEM,
-//   payload: {
+//   type: productsActionTypes.DELETE_PRODUCT,
+//   product: {
 //     id,
 //   },
 // });

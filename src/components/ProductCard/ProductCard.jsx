@@ -1,31 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useHistory  } from "react-router-dom"
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
+import { productDetail } from '../../actions/products';
 
-import ProductDetail from '../ProductDetail';
+import './ProductCard.scss';
 
-import "./ProductCard.scss";
-
-const ProductCard = ( {productInfo} ) => {
-
-  const history = useHistory()
+const ProductCard = ({ productInfo }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const clickHandle = () => {
-
-    history.push(`/products/${productInfo.name}`,{ productInfo })
-  }
-  // const {
-  //   name,
-  //   discount_percentage,
-  //   regular_price,
-  //   actual_price,
-  //   image,
-  // } = productInfo;
-
-  // const helperSlug = (name, products) => {
-  //   products.filter(item => {item.name === name});
-  //   const slug = `/product-detail-${name}`
-  // }
+    dispatch(productDetail(productInfo));
+    history.push(`/products/${productInfo.name}`);
+  };
 
   console.log('card', productInfo);
 
@@ -33,8 +20,12 @@ const ProductCard = ( {productInfo} ) => {
     <div className="product__card__container">
       <div className="product__card__grid">
         <div className="product__card__image">
-          <Link to={`/products/${productInfo.name}`} >
-            <img className="pic__1" src={productInfo.image} alt={productInfo.name} />
+          <Link to={`/products/${productInfo.name}`}>
+            <img
+              className="pic__1"
+              src={productInfo.image}
+              alt={productInfo.name}
+            />
           </Link>
           <span className="product__card__trend__label">Promoção</span>
           <span className="product__card__discount__label">
@@ -42,14 +33,16 @@ const ProductCard = ( {productInfo} ) => {
           </span>
           <ul className="social">
             <li onClick={clickHandle}>
-                Detalhes
-                <ion-icon name="cart"/>
+              Detalhes
+              <ion-icon name="cart" />
             </li>
           </ul>
         </div>
         <div className="product__card__content">
           <h3 className="title">
-            <Link to={`/products/${productInfo.name}`}>{productInfo.name}</Link>
+            <Link onClick={clickHandle} to={`/products/${productInfo.name}`}>
+              {productInfo.name}
+            </Link>
           </h3>
           <div className="price discount">
             <span>{productInfo.regular_price}</span>
