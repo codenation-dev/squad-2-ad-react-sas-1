@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { slugify } from '../../modules/slugify';
+import ImgDefault from '../../assets/images/indisponivel.png';
 
 import './ProductCard.scss';
 
@@ -8,27 +9,23 @@ const ProductCard = ({ productInfo }) => (
   <Link className="product__card__container">
     <div className="product__card__grid">
       <div className="product__card__item">
+        <Link to={`/products/${productInfo.name}`}>
+          {productInfo.image === '' ? (
+            <img src={ImgDefault} style={{width: "278.46px", height: "351.91px"}}/>
+          ) : (
+            <img src={productInfo.image}/>
+          )}
+        </Link>
         {/* <p
           to={`/products/${slugify(productInfo.name)}?color=${
             productInfo.color_slug
           }`}
         > */}
-          {productInfo.image && (
-            <img
-              className="product__card__image"
-              src={productInfo.image}
-              alt={productInfo.name}
-            />
-          )}
-        {/* </p> */}
+        
         <span className="product__card__trend__label">Promoção</span>
         <span className="product__card__discount__label">
           {productInfo.discount_percentage}
         </span>
-        <ul className="social">
-          <li><Link to={`/products/${productInfo.name}`}><ion-icon name="add-circle-outline"></ion-icon></Link></li>
-          <li><ion-icon name="cart-outline"></ion-icon></li>
-        </ul>
       </div>
       <div className="product__card__content">
         <h3 className="title">
