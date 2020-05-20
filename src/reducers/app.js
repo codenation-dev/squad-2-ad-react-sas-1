@@ -1,9 +1,7 @@
-// import responseJson from '../';
+// criar TOGLE_SEARCH
+// CRIAR STATUS_SEARCHBAR
+// CRIAR STATUS_CART
 
-// const INITIAL_STATE = {
-//   name: packageJson.name,
-//   version: packageJson.version,
-//   dependencies: packageJson.dependencies,
-// };
+const INITIAL_STATE = {};
 
-// export const appReducer = (state = INITIAL_STATE) => state;
+export const appReducer = (state = INITIAL_STATE) => state;
