@@ -6,26 +6,27 @@ import ImgDefault from '../../assets/images/indisponivel.png';
 import './ProductCard.scss';
 
 const ProductCard = ({ productInfo }) => (
-  <Link className="product__card__container">
+  <div className="product__card__container">
     <div className="product__card__grid">
       <div className="product__card__item">
         <Link to={`/products/${productInfo.name}`}>
           {productInfo.image === '' ? (
-            <img src={ImgDefault} style={{width: "278.46px", height: "351.91px"}}/>
+            <img
+              src={ImgDefault}
+              style={{ width: '278.46px', height: '351.91px' }}
+            />
           ) : (
-            <img src={productInfo.image}/>
+            <img src={productInfo.image} />
           )}
         </Link>
-        {/* <p
-          to={`/products/${slugify(productInfo.name)}?color=${
-            productInfo.color_slug
-          }`}
-        > */}
-        
-        <span className="product__card__trend__label">Promoção</span>
-        <span className="product__card__discount__label">
-          {productInfo.discount_percentage}
-        </span>
+        {productInfo.discount_percentage === '' ? null : (
+          <div>
+            <span className="product__card__trend__label">Promoção</span>
+            <span className="product__card__discount__label">
+              {productInfo.discount_percentage}
+            </span>
+          </div>
+        )}
       </div>
       <div className="product__card__content">
         <h3 className="title">
@@ -45,7 +46,7 @@ const ProductCard = ({ productInfo }) => (
         </div>
       </div>
     </div>
-  </Link>
+  </div>
 );
 
 export default ProductCard;
