@@ -34,7 +34,13 @@ const ProductCard = ({ productInfo }) => (
       </div>
       <div className="product__card__content">
         <h3 className="title">
-          <Link to={`/products/${productInfo.name}`}>{productInfo.name}</Link>
+          <Link
+            to={`/products/${slugify(productInfo.name)}?color=${
+              productInfo.color_slug
+            }`}
+          >
+            {productInfo.name}
+          </Link>
         </h3>
         <div className="price discount">
           {productInfo.regular_price == productInfo.actual_price ? null : (

@@ -1,7 +1,9 @@
 import { productsActionTypes } from '../constants/products';
+import { slugify } from '../modules/slugify';
 
 const INITIAL_STATE = {
   products: [],
+  lastRequest: null,
   product: {}, // mudar para catalogo
 };
 
@@ -12,16 +14,19 @@ export const productsReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         products: payload,
+        lastRequest: new Date().getTime(),
       };
 
-    case productsActionTypes.PRODUCT_DETAIL:
+    case productsActionTypes.SET_PRODUCT_DETAIL:
       // logica da busca por slug(name) + color-slug
+
       const { slug, color } = payload;
       const catalog = state.products;
       return {
         ...state,
         product: catalog.find(
-          ({ name, color_slug }) => name === slug && color_slug === color
+          ({ name, color_slug }) =>
+            slugify(name) === slug && color_slug === color
         ),
       };
 

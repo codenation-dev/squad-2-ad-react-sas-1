@@ -1,11 +1,31 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setProductDetail } from '../../actions/products';
+import { getProducts } from '../../services/products';
+import { getProductsRequest } from '../../actions/products';
 import Loading from '../Loading/';
+import { urlParser } from '../../modules/urlParser';
 
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
   const selectedProduct = useSelector((state) => state.products.product);
+  const products = useSelector((state) => state.products.products);
+  const dispatch = useDispatch();
+
+  const handleGetProducts = () => {
+    getProducts().then((data) => dispatch(getProductsRequest(data)));
+  };
+
+  useEffect(() => {
+    if (products.length > 0) {
+      const message = urlParser();
+
+      dispatch(setProductDetail(message));
+    } else {
+      handleGetProducts();
+    }
+  }, [products, selectedProduct]);
 
   if (!Object.keys(selectedProduct).length) {
     return <Loading />;

@@ -12,9 +12,9 @@ export const getProductsRequest = (payload) => {
   };
 };
 
-export const productDetail = ({ slug, color }) => {
+export const setProductDetail = ({ slug, color }) => {
   return {
-    type: productsActionTypes.PRODUCT_DETAIL,
+    type: productsActionTypes.SET_PRODUCT_DETAIL,
     payload: {
       slug,
       color,
