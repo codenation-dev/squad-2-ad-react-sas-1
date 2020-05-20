@@ -30,9 +30,9 @@ const Search = (props) => {
     );
   }, [search, products]);
 
-  if (loading) {
-    return <Loading />;
-  }
+  // if (loading) {
+  //   return <Loading />;
+  // }
 
   return (
     <aside className="search__overlay">
@@ -56,9 +56,10 @@ const Search = (props) => {
         <div className="search__content">
           <ul className="search__items">
             <li className="search__items-list">
-              {filteredProducts.map((product, idx) => (
+            {filteredProducts.map((product, idx) => (
                 <ProductDetailSearch key={idx} {...product} />
               ))}
+               <Loading />
             </li>
           </ul>
         </div>
@@ -69,13 +70,14 @@ const Search = (props) => {
 
 const ProductDetailSearch = (props) => {
   const { name, image, actual_price, installments } = props;
+  const { handleClose } = props;
   return (
     <Link to={`/products/${name}`} className="search__description">
       <div className="product__img">
         <img src={image} alt={name} style={{ width: '70px', height: '70px' }} />
       </div>
       
-        <div className="product__info">
+        <div className="product__info" >
           <p className="product__name">
             {name}
           </p>
