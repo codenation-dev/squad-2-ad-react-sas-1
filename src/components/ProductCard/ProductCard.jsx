@@ -13,7 +13,6 @@ const ProductCard = ({ productInfo }) => (
           {productInfo.image === '' ? (
             <img
               src={ImgDefault}
-              style={{ width: '278.46px', height: '351.91px' }}
             />
           ) : (
             <img src={productInfo.image} />
