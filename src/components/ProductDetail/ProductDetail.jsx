@@ -7,9 +7,9 @@ import './ProductDetail.scss';
 const ProductDetail = () => {
   const selectedProduct = useSelector((state) => state.products.product);
 
-  if (!Object.keys(selectedProduct).length) {
-    return <Loading />;
-  }
+  // if (!Object.keys(selectedProduct).length) {
+  //   return <Loading />;
+  // }
 
   return (
     <div className="product">

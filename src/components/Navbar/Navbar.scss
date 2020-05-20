@@ -9,7 +9,7 @@
 }
 .navbar__container {
   margin: 0 auto;
-  width: 1120px;
+  max-width: 1120px;
 }
 .navbar__wrapper {
   display: flex;
@@ -77,5 +77,6 @@
 @media screen and (max-width: 650px) {
   .navbar__container {
     margin: 0 auto;
+    
   }
 }
