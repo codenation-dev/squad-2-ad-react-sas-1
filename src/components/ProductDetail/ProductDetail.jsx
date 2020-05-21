@@ -34,41 +34,9 @@ const ProductDetail = () => {
   return (
     <div className="product">
       <div className="product__body">
+        
         <div className="product__image">
           <img src={selectedProduct.image} alt="nome do produto" />
-
-          <div className="icon__images">
-            <a href="">
-              <img
-                src="https://source.unsplash.com/500x600"
-                alt="nome do produto"
-              />
-            </a>
-            <a href="">
-              <img
-                src="https://source.unsplash.com/500x600"
-                alt="nome do produto"
-              />
-            </a>
-            <a href="">
-              <img
-                src="https://source.unsplash.com/500x600"
-                alt="nome do produto"
-              />
-            </a>
-            <a href="">
-              <img
-                src="https://source.unsplash.com/500x600"
-                alt="nome do produto"
-              />
-            </a>
-            <a href="">
-              <img
-                src="https://source.unsplash.com/500x600"
-                alt="nome do produto"
-              />
-            </a>
-          </div>
         </div>
 
         <div className="product__details">
@@ -89,14 +57,7 @@ const ProductDetail = () => {
           </div>
 
           <div className="product__desc">
-            <p>
-              {selectedProduct.name} é o vintage anos 80, super queridinho.
-              Ideal para um look de festa com muito estilo. Esse vestido curto é
-              feito em material acetinado e tem caimento justo ao corpo com
-              detalhes franzidos, manga curta bufante e decote quadrado, você
-              vai amar! ATENÇÃO: Cuidado ao lavar esta peça pois pode soltar
-              tinta.
-            </p>
+            <p>{selectedProduct.name}</p>
           </div>
 
           <div className="product__size">
@@ -112,6 +73,7 @@ const ProductDetail = () => {
           <div className="add__cart">
             <button className="btn__cart">comprar</button>
           </div>
+          
         </div>
       </div>
     </div>

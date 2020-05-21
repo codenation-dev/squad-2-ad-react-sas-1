@@ -1,9 +1,7 @@
 import React from 'react';
+import store from '../../store';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { PersistGate } from 'redux-persist/integration/react';
-
-import { store, persistor } from '../../store';
 
 import './App.scss';
 
@@ -12,10 +10,15 @@ import Footer from '../../components/Footer';
 
 import Routes from '../../routes';
 
+
+{/* import { PersistGate } from 'redux-persist/integration/react'; */}
+
+{/* import { store, persistor } from '../../store'; */}
+
 const App = () => {
   return (
     <Provider store={store}>
-      <PersistGate persistor={persistor}>
+      {/* <PersistGate persistor={persistor}> */}
         <div data-testid="app">
           <Router>
             <Navbar />
@@ -25,7 +28,7 @@ const App = () => {
             <Footer />
           </Router>
         </div>
-      </PersistGate>
+      {/* </PersistGate> */}
     </Provider>
   );
 };
