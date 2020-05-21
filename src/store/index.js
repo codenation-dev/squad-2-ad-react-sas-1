@@ -4,21 +4,22 @@ import storage from 'redux-persist/lib/storage'; // defaults to localStorage for
 
 import rootReducer from '../reducers';
 
-// const store = createStore(rootReducer);
-// export default store;
+const store = createStore(rootReducer);
 
-const persistConfig = {
-  key: 'FASHIONISTA_PROJECT',
-  storage,
-};
+export default store;
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
-const store = createStore(
-  persistedReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-
-const persistor = persistStore(store);
-
-export { store, persistor };
+// const persistConfig = {
+//   key: 'FASHIONISTA_PROJECT',
+//   storage,
+// };
+// 
+// const persistedReducer = persistReducer(persistConfig, rootReducer);
+// 
+// const store = createStore(
+//   persistedReducer,
+//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// );
+// 
+// const persistor = persistStore(store);
+// 
+// export { store, persistor };
