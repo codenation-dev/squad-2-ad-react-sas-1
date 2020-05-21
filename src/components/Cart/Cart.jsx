@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Produto from '../../assets/img/banner.jpg';
 
 import './Cart.scss';
 
@@ -13,9 +14,7 @@ const Cart = () => (
         <div className="product__card__container">
           <div className="product__card__grid">
             <div className="product__card__image">
-              <Link to="/">
-                <img className="pic__1" alt="imagem-do-produto" />
-              </Link>
+            <img src={Produto} />
             </div>
             <div className="product__card__content">
               <h3 className="title">

@@ -39,24 +39,26 @@
 
 .product__card__content {
   padding: 5%;
-    .title {
-    font-size: 15px;
+    span {
+    font-size: 12px;
     font-weight: 400;
     text-transform: uppercase;
     margin: 0 0 5px;
     text-align: left;
+    color: #444444;
+    &:hover {
+      text-decoration: none;
+      color: #444444;
+      font-weight: bold;
+    }
     a {
       color: #444444;
       text-decoration: none;
       font-size: 1.2rem;
-      &:hover {
-        text-decoration: none;
-        color: #444444;
-        font-weight: bold;
-      }
+      
     }
   }
-  .price {
+  .product__card-price {
     color: #333;
     font-size: 14px;
     font-weight: 400;
@@ -76,7 +78,7 @@
   align-items: center;
     background-color: rgba(0, 0, 0, 0.4);
     flex-direction: column;
-    height: 82%;
+    height: 100%;
     justify-content: center;
     left: 0;
     opacity: 0;
