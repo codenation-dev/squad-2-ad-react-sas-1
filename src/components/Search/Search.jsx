@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import Loading from '../Loading/Loading';
+import ImgDefault from '../../assets/images/indisponivel.png';
 
 import './Search.scss';
 
@@ -56,10 +57,12 @@ const Search = (props) => {
         <div className="search__content">
           <ul className="search__items">
             <li className="search__items-list">
-            {filteredProducts.map((product, idx) => (
+            { products.length > 0
+              ? ( filteredProducts.map((product, idx) => (
                 <ProductDetailSearch key={idx} {...product} />
-              ))}
-               <Loading />
+              )))
+               : <Loading />
+              }
             </li>
           </ul>
         </div>
@@ -74,15 +77,17 @@ const ProductDetailSearch = (props) => {
   return (
     <Link to={`/products/${name}`} className="search__description">
       <div className="product__img">
-        <img src={image} alt={name} style={{ width: '70px', height: '70px' }} />
+        {image === '' ? (
+            <img src={ImgDefault} className="indisponivel" />
+          ) : (
+            <img src={image} alt={name} style={{ width: '70px', height: '70px' }} />
+          )}
       </div>
       
         <div className="product__info" >
           <p className="product__name">
             {name}
           </p>
-          
-          
           <div className="product__info__price">
           <p className="product__price-search">
             {actual_price} 
