@@ -10,6 +10,9 @@ const ProductCard = ({ productInfo }) => (
     <div className="product__card__grid">
       <div className="product__card__item">
         <div class="product__card__image">
+          <ul className="social">
+            <li><Link to={`/products/${productInfo.name}`}><ion-icon name="add-circle-outline"></ion-icon></Link></li>
+          </ul>
           {productInfo.image === '' ? (
             <img src={ImgDefault} />
           ) : (
@@ -22,12 +25,13 @@ const ProductCard = ({ productInfo }) => (
             <span className="product__card__discount__label">
               {productInfo.discount_percentage}
             </span>
+            
           </div>
         )}
       </div>
       <div className="product__card__content">
         <span className="product__card__title">{productInfo.name}</span>
-        <div className="product__card-price__discount">
+        <div className="product__card-price discount">
           {productInfo.regular_price == productInfo.actual_price ? null : (
             <span>{productInfo.regular_price}</span>
           )}
