@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   products: [],
   lastRequest: null,
   product: {}, // mudar para catalogo
+  isOpenSearch: false,
 };
 
 export const productsReducer = (state = INITIAL_STATE, action) => {
@@ -18,8 +19,6 @@ export const productsReducer = (state = INITIAL_STATE, action) => {
       };
 
     case productsActionTypes.SET_PRODUCT_DETAIL:
-      // logica da busca por slug(name) + color-slug
-
       const { slug, color } = payload;
       const catalog = state.products;
       return {
@@ -30,11 +29,18 @@ export const productsReducer = (state = INITIAL_STATE, action) => {
         ),
       };
 
-    //   return {
-    //     item: [...state.all, item].filter((item) => item.name),
-    //   };
+    case productsActionTypes.TOGLE_SEARCH:
+      const { isOpenSearch } = payload;
+      return {
+        ...state,
+        isOpenSearch: !isOpenSearch,
+      };
 
     default:
       return state;
   }
+
+  //   return {
+  //     item: [...state.all, item].filter((item) => item.name),
+  //   };
 };

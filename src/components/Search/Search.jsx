@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import { slugify } from '../../modules/slugify';
-import { urlParser } from '../../modules/urlParser';
+import { toggleSearch } from '../../actions/products';
 
 import Loading from '../Loading/Loading';
 import ImgDefault from '../../assets/images/indisponivel.png';
@@ -10,28 +10,24 @@ import ImgDefault from '../../assets/images/indisponivel.png';
 import './Search.scss';
 
 const Search = ({ productList }) => {
-  const { handleClose } = productList;
-  const [products, setProduct] = useState([]);
+  const isOpen = useSelector((state) => state.products.isOpenSearch);
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get('https://5e9935925eabe7001681c856.mockapi.io/api/v1/catalog')
-      .then((res) => {
-        setProduct(res.data);
-        setLoading(false);
-      });
-  }, []);
+  const handleClose = (isOpen) => {
+    dispatch(toggleSearch(isOpen));
+    return !isOpen && <Link to="/" />;
+  };
 
   useEffect(() => {
     setFilteredProducts(
-      products.filter((product) =>
+      productList.filter((product) =>
         product.name.toLowerCase().includes(search.toLowerCase())
       )
     );
-  }, [search, products]);
+  }, [search, productList]);
 
   // if (loading) {
   //   return <Loading />;
@@ -59,7 +55,7 @@ const Search = ({ productList }) => {
         <div className="search__content">
           <ul className="search__items">
             <li className="search__items-list">
-              {products.length > 0 ? (
+              {productList.length > 0 ? (
                 filteredProducts.map((product, idx) => (
                   <ProductDetailSearch key={idx} {...product} />
                 ))

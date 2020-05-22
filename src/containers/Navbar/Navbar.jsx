@@ -32,14 +32,18 @@ function Navbar() {
   };
 
   useEffect(() => {
-    if (products.length > 0) {
-      const message = urlParser();
+    handleGetProducts();
+  }, []);
 
-      dispatch(setProductDetail(message));
-    } else {
-      handleGetProducts();
-    }
-  }, [products]);
+  // useEffect(() => {
+  //   if (products.length > 0) {
+  //     const message = urlParser();
+
+  //     dispatch(setProductDetail(message));
+  //   } else {
+  //     handleGetProducts();
+  //   }
+  // }, [products]);
 
   return (
     <header className="navbar">
