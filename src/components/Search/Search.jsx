@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { slugify } from '../../modules/slugify';
+import { urlParser } from '../../modules/urlParser';
 
 import Loading from '../Loading/Loading';
 import ImgDefault from '../../assets/images/indisponivel.png';
 
 import './Search.scss';
 
-const Search = (props) => {
-  const { handleClose } = props;
+const Search = ({ productList }) => {
+  const { handleClose } = productList;
   const [products, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState('');
@@ -57,46 +59,49 @@ const Search = (props) => {
         <div className="search__content">
           <ul className="search__items">
             <li className="search__items-list">
-            { products.length > 0
-              ? ( filteredProducts.map((product, idx) => (
-                <ProductDetailSearch key={idx} {...product} />
-              )))
-               : <Loading />
-              }
+              {products.length > 0 ? (
+                filteredProducts.map((product, idx) => (
+                  <ProductDetailSearch key={idx} {...product} />
+                ))
+              ) : (
+                <Loading />
+              )}
             </li>
           </ul>
         </div>
       </div>
     </aside>
   );
-}
+};
 
-const ProductDetailSearch = (props) => {
-  const { name, image, actual_price, installments } = props;
-  const { handleClose } = props;
+const ProductDetailSearch = (productList) => {
+  // const { name, image, actual_price, installments } = props;
   return (
-    <Link to={`/products/${name}`} className="search__description">
+    <Link
+      to={`/products/${slugify(productList.name)}?color=${
+        productList.color_slug
+      }`}
+      className="search__description"
+    >
       <div className="product__img">
-        {image === '' ? (
-            <img src={ImgDefault} className="indisponivel" />
-          ) : (
-            <img src={image} alt={name} style={{ width: '70px', height: '70px' }} />
-          )}
+        {productList.image === '' ? (
+          <img src={ImgDefault} className="indisponivel" />
+        ) : (
+          <img
+            src={productList.image}
+            alt={productList.name}
+            style={{ width: '70px', height: '70px' }}
+          />
+        )}
       </div>
-      
-        <div className="product__info" >
-          <p className="product__name">
-            {name}
-          </p>
-          <div className="product__info__price">
-          <p className="product__price-search">
-            {actual_price} 
-          </p>
-          <p className="product__installments">
-          {installments}
-          </p>
+
+      <div className="product__info">
+        <p className="product__name">{productList.name}</p>
+        <div className="product__info__price">
+          <p className="product__price-search">{productList.actual_price}</p>
+          <p className="product__installments">{productList.installments}</p>
         </div>
-      </div> 
+      </div>
     </Link>
   );
 };

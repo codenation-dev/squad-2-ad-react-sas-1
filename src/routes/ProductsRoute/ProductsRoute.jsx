@@ -17,7 +17,7 @@ const ProductsRoute = () => {
 
   useEffect(() => {
     handleGetProducts();
-  });
+  }, []);
 
   return <ProductList />;
 };
