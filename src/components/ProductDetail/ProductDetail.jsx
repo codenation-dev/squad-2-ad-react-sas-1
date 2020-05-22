@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setProductDetail } from '../../actions/products';
 import { getProducts } from '../../services/products';
-import { getProductsRequest } from '../../actions/products';
+import { setProductDetail, getProductsRequest, addItem } from '../../actions/products';
 import Loading from '../Loading/';
 import { urlParser } from '../../modules/urlParser';
 
@@ -11,11 +10,18 @@ import './ProductDetail.scss';
 const ProductDetail = () => {
   const selectedProduct = useSelector((state) => state.products.product);
   const products = useSelector((state) => state.products.products);
+  const cart = useSelector((state) => state.products.cart);
   const dispatch = useDispatch();
 
   const handleGetProducts = () => {
     getProducts().then((data) => dispatch(getProductsRequest(data)));
   };
+
+  const handleAddItem = () => dispatch(addItem(selectedProduct));
+  
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
 
   useEffect(() => {
     if (products.length > 0) {
@@ -25,7 +31,7 @@ const ProductDetail = () => {
     } else {
       handleGetProducts();
     }
-  }, [products, selectedProduct]);
+  }, [products, selectedProduct, cart]);
 
   // if (!Object.keys(selectedProduct).length) {
   //   return <Loading />;
@@ -62,12 +68,12 @@ const ProductDetail = () => {
             <span>G</span>
           </div>
 
-          <div className="product__quantity">
-            <input className="quantity" type="number"></input>
-          </div>
+          {/* <div className="product__quantity"> */}
+          {/*   <input className="quantity" type="number"></input> */}
+          {/* </div> */}
 
           <div className="add__cart">
-            <button className="btn__cart">comprar</button>
+            <button className="btn__cart" onClick={handleAddItem}>adicionar ao carrinho</button>
           </div>
 
         </div>

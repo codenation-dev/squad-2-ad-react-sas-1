@@ -59,6 +59,8 @@
 .product__image {
   border: 1px solid #ccc;
   border-radius: 10px;
+  overflow: auto;
+  box-shadow: 1px 1px 10px #ccc;
   @media screen and (min-width: 1024px) {
     margin-right: 3%;
   }

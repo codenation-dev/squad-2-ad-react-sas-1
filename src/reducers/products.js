@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   products: [],
   lastRequest: null,
   product: {}, // mudar para catalogo
+  cart: [],
 };
 
 export const productsReducer = (state = INITIAL_STATE, action) => {
@@ -28,6 +29,12 @@ export const productsReducer = (state = INITIAL_STATE, action) => {
           ({ name, color_slug }) =>
             slugify(name) === slug && color_slug === color
         ),
+      };
+
+    case productsActionTypes.ADD_ITEM:
+      return {
+        ...state,
+        cart: [...state.cart, payload],
       };
 
     //   return {

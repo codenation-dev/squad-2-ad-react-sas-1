@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Search from '../Search';
 
@@ -6,12 +7,19 @@ import { ReactComponent as FashionistaLogo } from '../../assets/images/fashionis
 import './Navbar.scss';
 import { Link } from 'react-router-dom';
 
-const cartItems = [];
 
 function Navbar() {
   const [searchStatus, setSearchStatus] = useState(false);
   const handleClick = () => setSearchStatus(true);
   const handleOpenSearch = () => setSearchStatus(false);
+  
+  const cartItems = useSelector((state) => state.products.cart);
+
+  console.log(cartItems.length);
+
+  useEffect(() => {
+
+  }, []);
 
   const handleClose = (searchStatus) => {
     setSearchStatus(!searchStatus);
