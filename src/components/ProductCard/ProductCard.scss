@@ -120,4 +120,16 @@
      width: 100%;
      padding: 10%;
    }
+   .product__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .product__card__container{
+      width: calc(100% / 2 - 4%);
+      padding: 2%;
+      .product__card__content span{
+        font-size: 14px;
+      }
+    }
+  }
  }
