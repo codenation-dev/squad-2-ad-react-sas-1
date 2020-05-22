@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { slugify } from '../../modules/slugify';
 import { toggleSearch } from '../../actions/products';
 
+import ProductDetailSearch from '../../components/ProductDetailSearch';
 import Loading from '../Loading/Loading';
-import ImgDefault from '../../assets/images/indisponivel.png';
 
 import './Search.scss';
 
@@ -22,12 +21,13 @@ const Search = ({ productList }) => {
   };
 
   useEffect(() => {
+    dispatch(toggleSearch(isOpen));
     setFilteredProducts(
       productList.filter((product) =>
         product.name.toLowerCase().includes(search.toLowerCase())
       )
     );
-  }, [search, productList]);
+  }, [search, productList, isOpen]);
 
   // if (loading) {
   //   return <Loading />;
@@ -46,7 +46,7 @@ const Search = ({ productList }) => {
             className="search__close"
             type="button"
             name="search__close"
-            onClick={handleClose}
+            onClick={() => handleClose(isOpen)}
           >
             X
           </button>
@@ -57,7 +57,11 @@ const Search = ({ productList }) => {
             <li className="search__items-list">
               {productList.length > 0 ? (
                 filteredProducts.map((product, idx) => (
-                  <ProductDetailSearch key={idx} {...product} />
+                  <ProductDetailSearch
+                    key={idx}
+                    {...product}
+                    productList={productList}
+                  />
                 ))
               ) : (
                 <Loading />
@@ -67,38 +71,6 @@ const Search = ({ productList }) => {
         </div>
       </div>
     </aside>
-  );
-};
-
-const ProductDetailSearch = (productList) => {
-  // const { name, image, actual_price, installments } = props;
-  return (
-    <Link
-      to={`/products/${slugify(productList.name)}?color=${
-        productList.color_slug
-      }`}
-      className="search__description"
-    >
-      <div className="product__img">
-        {productList.image === '' ? (
-          <img src={ImgDefault} className="indisponivel" />
-        ) : (
-          <img
-            src={productList.image}
-            alt={productList.name}
-            style={{ width: '70px', height: '70px' }}
-          />
-        )}
-      </div>
-
-      <div className="product__info">
-        <p className="product__name">{productList.name}</p>
-        <div className="product__info__price">
-          <p className="product__price-search">{productList.actual_price}</p>
-          <p className="product__installments">{productList.installments}</p>
-        </div>
-      </div>
-    </Link>
   );
 };
 

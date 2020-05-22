@@ -29,13 +29,6 @@ export const productsReducer = (state = INITIAL_STATE, action) => {
         ),
       };
 
-    case productsActionTypes.TOGLE_SEARCH:
-      const { isOpenSearch } = payload;
-      return {
-        ...state,
-        isOpenSearch: !isOpenSearch,
-      };
-
     default:
       return state;
   }
