@@ -181,9 +181,7 @@
   
  
    
-  .cart__items_title{
-    display: none;
-  }
+ 
    .product__info {
    display: inline-flex;
    padding: 2%;
@@ -193,6 +191,9 @@
 
    .cart__container {
     padding: 3rem 0;
+    .cart__items_title{
+      display: none;
+    }
     .cart__totals{
       margin: 5% 4%;
     }
