@@ -115,7 +115,7 @@
         }
         .product__info{
           display: inline-flex;
-          padding: 4% 2%;
+          padding: 4% 2% 0 2%;
           justify-content: space-between;
           width: 100%;
         }
@@ -144,11 +144,13 @@
             font-size: 16px;
             padding: 0 10px;
           }
-          .remover{
-            font-size: 10px;
-            font-weight: normal;
-          }
+          
         } 
+        .remove-cart{
+          font-size: 20px;
+          font-weight: normal;
+          color: #ff0000;
+        }
       }
     }
   .cart__totals{
@@ -226,6 +228,9 @@
          .qty .hydrated{
           font-size: 18px;
         }
+      }
+      .remove-cart {
+        font-size: 16px;
       }
     }
   }

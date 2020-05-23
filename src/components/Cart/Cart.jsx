@@ -11,12 +11,13 @@ const Cart = () => (
   <div className="cart__container">
     <div className="cart__painel">
       <div className="cart__header">
-          <button className="cart__close" type="button" name="cart__close" >
-          <ion-icon name="arrow-back-circle-outline"></ion-icon>
-          </button>
+          
         <span className="cart__title">
         MINHA SACOLA
         </span>
+        <Link to="/" className="cart__close" type="button" name="cart__close" >
+          <ion-icon name="close-circle-outline"></ion-icon>
+        </Link>
       </div>
 
 
@@ -46,14 +47,14 @@ const Cart = () => (
               <div className="product__cart__qty">
               <div className="product__qty__remove">
                 <div className="qty">
-                <ion-icon className="add" name="add-circle"></ion-icon>
+                <ion-icon className="remove" name="remove-circle"></ion-icon>
                   <div className="input-box">
                     2
                   </div>
-                  <ion-icon className="remove" name="remove-circle"></ion-icon>
+                  <ion-icon className="add" name="add-circle"></ion-icon>
                 </div>
-                <div className="remove">
-                  REMOVER
+                <div className="remove-cart">
+                  <ion-icon name="trash-outline"></ion-icon>
                 </div>
               </div>
             </div>
@@ -93,8 +94,8 @@ const Cart = () => (
                   </div>
                   <ion-icon className="remove" name="remove-circle"></ion-icon>
                 </div>
-                <div className="remove">
-                  REMOVER
+                <div className="remove-cart">
+                  <ion-icon name="trash-outline"></ion-icon>
                 </div>
               </div>
             </div>
