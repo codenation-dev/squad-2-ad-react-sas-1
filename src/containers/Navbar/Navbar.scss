@@ -3,7 +3,7 @@
   padding: 8px 0;
   position: fixed;
   top: 0;
-  z-index: 9999;
+  z-index: 999;
   width: 100%;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1111);
 }
@@ -45,7 +45,7 @@
   font-size: 24px;
   text-decoration: none;
   color: #000000;
-  a{
+  a {
     font-size: 24px;
     text-decoration: none;
     color: #000000;
@@ -77,6 +77,5 @@
 @media screen and (max-width: 650px) {
   .navbar__container {
     margin: 0 auto;
-    
   }
 }

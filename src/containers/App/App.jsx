@@ -3,31 +3,36 @@ import store from '../../store';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import './App.scss';
-
-import Navbar from '../../components/Navbar';
+import Navbar from '../../containers/Navbar';
 import Footer from '../../components/Footer';
+import Search from '../../components/Search';
 
 import Routes from '../../routes';
 
+import './App.scss';
 
-{/* import { PersistGate } from 'redux-persist/integration/react'; */}
+{
+  /* import { PersistGate } from 'redux-persist/integration/react'; */
+}
 
-{/* import { store, persistor } from '../../store'; */}
+{
+  /* import { store, persistor } from '../../store'; */
+}
 
 const App = () => {
   return (
     <Provider store={store}>
       {/* <PersistGate persistor={persistor}> */}
-        <div data-testid="app">
-          <Router>
-            <Navbar />
+      <div data-testid="app">
+        <Router>
+          <Navbar />
+          <Search />
 
-            <Routes />
+          <Routes />
 
-            <Footer />
-          </Router>
-        </div>
+          <Footer />
+        </Router>
+      </div>
       {/* </PersistGate> */}
     </Provider>
   );

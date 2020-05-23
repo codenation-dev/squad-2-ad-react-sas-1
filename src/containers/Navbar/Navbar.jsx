@@ -1,20 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts } from '../../services/products';
+import { getProductsRequest } from '../../actions/products';
+import { toggleSearch } from '../../actions/search';
 
-import Search from '../Search';
+import { urlParser } from '../../modules/urlParser';
 
 import { ReactComponent as FashionistaLogo } from '../../assets/images/fashionista-logo.svg';
 import './Navbar.scss';
-import { Link } from 'react-router-dom';
 
 const cartItems = [];
 
 function Navbar() {
-  const [searchStatus, setSearchStatus] = useState(false);
-  const handleClick = () => setSearchStatus(true);
-  const handleOpenSearch = () => setSearchStatus(false);
+  const dispatch = useDispatch();
 
-  const handleClose = (searchStatus) => {
-    setSearchStatus(!searchStatus);
+  // const handleOpenSearch = () => setSearchStatus(false);
+
+  const handleGetProducts = () => {
+    getProducts().then((data) => dispatch(getProductsRequest(data)));
+  };
+
+  const handleToggle = () => {
+    dispatch(toggleSearch());
   };
 
   return (
@@ -31,12 +39,9 @@ function Navbar() {
           </div>
 
           <div className="navbar__menu">
-            <button className="navbar__item" onClick={handleClick}>
+            <button className="navbar__item" onClick={handleToggle}>
               <ion-icon name="search-outline"></ion-icon>
             </button>
-            {searchStatus && (
-              <Search onClick={handleOpenSearch} handleClose={handleClose} />
-            )}
 
             <button className="navbar__item">
               <Link to="/cart">
