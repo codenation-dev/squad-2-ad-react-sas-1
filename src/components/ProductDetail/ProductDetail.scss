@@ -158,3 +158,17 @@
     // border: solid 1px black;
   }
 }
+
+@media screen and (max-width: 991px) {
+  .product{
+    height: 65vh;
+    align-items: center;
+    display: flex;
+    .product__body{
+      margin-left: 5%;
+    }
+  }
+  .product__details {
+    padding: 5%;
+  }
+}

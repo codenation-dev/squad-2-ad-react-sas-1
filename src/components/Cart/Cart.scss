@@ -140,13 +140,54 @@
         .hydrated {
           font-size: 30px;
         }
-        .input-box {
+        .cart__description {
+          display: flex;
+          height: 90px;
+          padding: 2% 0;
+          box-shadow: 6px 6px 6px -6px #444444;
+          margin-bottom: 2px;
+        }
+        .product__img {
+          padding: 10px;
+          width: 10%;
+        }
+        .indisponivel {
+          width: 70px;
+          height: 60px;
+        }
+        .product__info {
+          display: inline-flex;
+          padding: 4% 2% 0 2%;
+          justify-content: space-between;
+          width: 100%;
+        }
+        .product__name {
+          //width: 90px;
+          text-align: left;
           font-size: 16px;
           padding: 0 10px;
         }
         .remover {
           font-size: 10px;
           font-weight: normal;
+        }
+
+        .qty {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          .hydrated {
+            font-size: 30px;
+          }
+          .input-box {
+            font-size: 16px;
+            padding: 0 10px;
+          }
+        }
+        .remove-cart {
+          font-size: 20px;
+          font-weight: normal;
+          color: #ff0000;
         }
       }
     }
@@ -221,6 +262,9 @@
             font-size: 16px;
           }
         }
+      }
+      .remove-cart {
+        font-size: 16px;
       }
     }
   }
