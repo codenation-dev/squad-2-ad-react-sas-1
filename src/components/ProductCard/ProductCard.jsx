@@ -14,7 +14,7 @@ const ProductCard = ({ productInfo }) => (
   >
     <div className="product__card__grid">
       <div className="product__card__item">
-        <div class="product__card__image">
+        <div className="product__card__image">
           <ul className="social">
             <li>
               <Link
