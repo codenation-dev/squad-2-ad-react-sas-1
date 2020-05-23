@@ -53,8 +53,8 @@ const Cart = () => (
                   </div>
                   <ion-icon className="add" name="add-circle"></ion-icon>
                 </div>
-                <div className="remove">
-                  REMOVER
+                <div className="remove-cart">
+                  <ion-icon name="trash-outline"></ion-icon>
                 </div>
               </div>
             </div>
@@ -94,8 +94,8 @@ const Cart = () => (
                   </div>
                   <ion-icon className="remove" name="remove-circle"></ion-icon>
                 </div>
-                <div className="remove">
-                  REMOVER
+                <div className="remove-cart">
+                  <ion-icon name="trash-outline"></ion-icon>
                 </div>
               </div>
             </div>
