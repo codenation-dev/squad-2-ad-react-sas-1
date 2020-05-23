@@ -1,71 +1,64 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { toggleSearch } from '../../actions/products';
+import { closeSearch } from '../../actions/search';
+import { slugify } from '../../modules/slugify';
 
 import ProductDetailSearch from '../../components/ProductDetailSearch';
 import Loading from '../Loading/Loading';
 
 import './Search.scss';
 
-const Search = ({ productList }) => {
-  const isOpen = useSelector((state) => state.products.isOpenSearch);
+const Search = () => {
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(false);
-  const [search, setSearch] = useState('');
+  const isSearchOpen = useSelector((state) => state.search.isSearchOpen);
+  const products = useSelector((state) => state.products.products);
+  const [searchTerm, setSearchTerm] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
 
-  const handleClose = (isOpen) => {
-    dispatch(toggleSearch(isOpen));
-    return !isOpen && <Link to="/" />;
+  const handleClose = () => {
+    dispatch(closeSearch());
   };
 
   useEffect(() => {
-    dispatch(toggleSearch(isOpen));
-    setFilteredProducts(
-      productList.filter((product) =>
-        product.name.toLowerCase().includes(search.toLowerCase())
-      )
-    );
-  }, [search, productList, isOpen]);
+    if (searchTerm.length >= 3) {
+      const filteredData = products.filter(({ name }) =>
+        slugify(name).includes(slugify(searchTerm))
+      );
 
-  // if (loading) {
-  //   return <Loading />;
-  // }
+      setFilteredProducts(filteredData);
+    }
+  }, [searchTerm]);
 
   return (
-    <aside className="search__overlay">
+    <aside className={`search__overlay ${isSearchOpen ? 'is-open' : ''}`}>
       <div className="search__sidebar">
         <div className="search__header">
           <span className="search__title">
             {' '}
             Busca{' '}
-            <input type="text" onChange={(e) => setSearch(e.target.value)} />
+            <input
+              type="text"
+              placeholder="buscar produto ..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
           </span>
           <button
             className="search__close"
             type="button"
             name="search__close"
-            onClick={() => handleClose(isOpen)}
+            onClick={handleClose}
           >
-            X
+            <ion-icon name="close-circle-outline"></ion-icon>
           </button>
         </div>
 
         <div className="search__content">
           <ul className="search__items">
             <li className="search__items-list">
-              {productList.length > 0 ? (
-                filteredProducts.map((product, idx) => (
-                  <ProductDetailSearch
-                    key={idx}
-                    {...product}
-                    productList={productList}
-                  />
-                ))
-              ) : (
-                <Loading />
-              )}
+              {filteredProducts.map((product, idx) => (
+                <ProductDetailSearch key={idx} product={product} />
+              ))}
             </li>
           </ul>
         </div>

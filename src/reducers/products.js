@@ -2,9 +2,9 @@ import { productsActionTypes } from '../constants/products';
 import { slugify } from '../modules/slugify';
 
 const INITIAL_STATE = {
-  products: [],
+  products: [], // mudar para catalog ou items
   lastRequest: null,
-  product: {}, // mudar para catalogo
+  product: {},
   isOpenSearch: false,
 };
 

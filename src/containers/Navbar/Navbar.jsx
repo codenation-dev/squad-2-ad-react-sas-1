@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../services/products';
 import { getProductsRequest } from '../../actions/products';
-import { setProductDetail } from '../../actions/products';
+import { toggleSearch } from '../../actions/search';
 
 import { urlParser } from '../../modules/urlParser';
-
-import Search from '../../components/Search';
 
 import { ReactComponent as FashionistaLogo } from '../../assets/images/fashionista-logo.svg';
 import './Navbar.scss';
@@ -16,34 +14,16 @@ const cartItems = [];
 
 function Navbar() {
   const dispatch = useDispatch();
-  const [searchStatus, setSearchStatus] = useState(false);
-  const products = useSelector((state) => state.products.products);
 
-  const handleClick = () => setSearchStatus(true);
-
-  const handleOpenSearch = () => setSearchStatus(false);
+  // const handleOpenSearch = () => setSearchStatus(false);
 
   const handleGetProducts = () => {
     getProducts().then((data) => dispatch(getProductsRequest(data)));
   };
 
-  const handleClose = (searchStatus) => {
-    setSearchStatus(!searchStatus);
+  const handleToggle = () => {
+    dispatch(toggleSearch());
   };
-
-  useEffect(() => {
-    handleGetProducts();
-  }, []);
-
-  // useEffect(() => {
-  //   if (products.length > 0) {
-  //     const message = urlParser();
-
-  //     dispatch(setProductDetail(message));
-  //   } else {
-  //     handleGetProducts();
-  //   }
-  // }, [products]);
 
   return (
     <header className="navbar">
@@ -59,16 +39,9 @@ function Navbar() {
           </div>
 
           <div className="navbar__menu">
-            <button className="navbar__item" onClick={handleClick}>
+            <button className="navbar__item" onClick={handleToggle}>
               <ion-icon name="search-outline"></ion-icon>
             </button>
-            {searchStatus && (
-              <Search
-                onClick={handleOpenSearch}
-                handleClose={handleClose}
-                productList={products}
-              />
-            )}
 
             <button className="navbar__item">
               <Link to="/cart">

@@ -21,12 +21,3 @@ export const setProductDetail = ({ slug, color }) => {
     },
   };
 };
-
-export const toggleSearch = ({ isOpenSearch }) => {
-  return {
-    type: productsActionTypes.TOGGLE_SEARCH,
-    payload: {
-      isOpenSearch,
-    },
-  };
-};

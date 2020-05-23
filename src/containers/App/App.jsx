@@ -3,12 +3,13 @@ import store from '../../store';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import './App.scss';
-
 import Navbar from '../../containers/Navbar';
 import Footer from '../../components/Footer';
+import Search from '../../components/Search';
 
 import Routes from '../../routes';
+
+import './App.scss';
 
 {
   /* import { PersistGate } from 'redux-persist/integration/react'; */
@@ -25,6 +26,7 @@ const App = () => {
       <div data-testid="app">
         <Router>
           <Navbar />
+          <Search />
 
           <Routes />
 

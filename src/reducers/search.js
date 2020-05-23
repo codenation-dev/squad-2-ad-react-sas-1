@@ -9,10 +9,15 @@ export const searchReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
   switch (type) {
     case productsActionTypes.TOGGLE_SEARCH:
-      const { isOpenSearch } = payload;
       return {
         ...state,
-        isOpenSearch: !isOpenSearch,
+        isSearchOpen: !state.isSearchOpen,
+      };
+
+    case productsActionTypes.CLOSE_SEARCH:
+      return {
+        ...state,
+        isSearchOpen: false,
       };
 
     default:
