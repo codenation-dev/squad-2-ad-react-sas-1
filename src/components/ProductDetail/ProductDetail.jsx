@@ -1,36 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../services/products';
-import { setProductDetail, getProductsRequest, addItem } from '../../actions/products';
+import {
+  setProductDetail,
+  getProductsRequest,
+  addItem,
+} from '../../actions/products';
 import Loading from '../Loading/';
 import { urlParser } from '../../modules/urlParser';
 
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
-
+  const dispatch = useDispatch();
   const selectedProduct = useSelector((state) => state.products.product);
   const products = useSelector((state) => state.products.products);
   const cart = useSelector((state) => state.products.cart);
 
-  const [selectedSize, setSelectedSize] = useState(''); 
-  
-  const dispatch = useDispatch();
-  
+  const [selectedSize, setSelectedSize] = useState('');
+
   const handleGetProducts = () => {
     getProducts().then((data) => dispatch(getProductsRequest(data)));
   };
 
-  const handleAddItem = (sku) => dispatch(addItem(sku));
+  const handleAddItem = ({ sku, size }) =>
+    dispatch(addItem({ sku, size, selectedProduct }));
 
-  const handleSetSize = (sku) => setSelectedSize(sku);
+  const handleSetSize = (size) => setSelectedSize(size);
 
   useEffect(() => {
     console.log(cart);
   }, [cart]);
 
   useEffect(() => {
-
     if (products.length > 0) {
       const message = urlParser();
 
@@ -40,13 +42,17 @@ const ProductDetail = () => {
     }
   }, [products, selectedProduct, window.location.pathname]);
 
-  {/* console.log(selectedProduct); */}
+  {
+    /* console.log(selectedProduct); */
+  }
 
   if (!Object.keys(selectedProduct).length) {
     return <Loading />;
   }
 
-  {/* console.log(selectedSize); */}
+  {
+    /* console.log(selectedSize); */
+  }
 
   return (
     <div className="product">
@@ -72,14 +78,30 @@ const ProductDetail = () => {
           </div>
 
           <div className="product__size">
-            {selectedProduct.sizes && selectedProduct.sizes
-              .filter(({ available }) => available)
-              .map(item => <span key={item.sku} sku={item.sku} onClick={() => handleSetSize(item.sku)}>{item.size}</span>)
-            }
+            {selectedProduct.sizes &&
+              selectedProduct.sizes
+                .filter(({ available }) => available)
+                .map((item) => (
+                  <span
+                    key={item.sku}
+                    sku={item.sku}
+                    onClick={() => handleSetSize(item)}
+                    className={` ${
+                      item.sku === selectedSize.sku ? 'is-active' : ''
+                    }`}
+                  >
+                    {item.size}
+                  </span>
+                ))}
           </div>
 
           <div className="add__cart">
-            <button className="btn__cart" onClick={() => handleAddItem(selectedSize)}>adicionar ao carrinho</button>
+            <button
+              className="btn__cart"
+              onClick={() => handleAddItem(selectedSize)}
+            >
+              adicionar ao carrinho
+            </button>
           </div>
         </div>
       </div>

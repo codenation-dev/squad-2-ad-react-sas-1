@@ -37,7 +37,7 @@
     vertical-align: baseline;
     border-radius: 0.25rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
 
   h2 {
@@ -112,7 +112,7 @@
     margin-right: 5px;
     text-transform: uppercase;
     cursor: pointer;
-    &.active {
+    &.is-active {
       color: #fff;
       background: #424242;
     }

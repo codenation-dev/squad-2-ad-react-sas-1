@@ -26,5 +26,15 @@ export const addItem = (payload) => {
   return {
     type: productsActionTypes.ADD_ITEM,
     payload,
-  }
-}
+  };
+};
+
+export const setSize = ({ size, sku }) => {
+  return {
+    type: productsActionTypes.SET_SIZE,
+    payload: {
+      size,
+      sku,
+    },
+  };
+};
