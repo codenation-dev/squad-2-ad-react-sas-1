@@ -15,7 +15,7 @@ function Navbar() {
   
   const cartItems = useSelector((state) => state.products.cart);
 
-  console.log(cartItems.length);
+  {/* console.log(cartItems.length); */}
 
   useEffect(() => {
 
