@@ -1,6 +1,6 @@
-
-.search__overlay{
-  background: rgba(49,49,49,.4);
+.search__overlay {
+  transition: all 0.2s ease-in-out;
+  background: rgba(49, 49, 49, 0);
   display: flex;
   height: 100vh;
   justify-content: flex-end;
@@ -10,36 +10,44 @@
   top: 0;
   width: 100vw;
   z-index: 1000;
+  visibility: hidden;
+
+  &.is-open {
+    background: rgba(49, 49, 49, 0.4);
+    visibility: visible;
+
+    .search__sidebar {
+      transform: translate(0, 0);
+    }
+  }
 }
 
-.search__sidebar{
-  background-color: white;    
+.search__sidebar {
+  transform: translate(100%, 0);
+  background-color: white;
   box-shadow: -0.2rem 0 0.2rem #ffffff;
   color: #444444;
   display: flex;
-  flex-direction: column;   
+  flex-direction: column;
   line-height: 1.5;
   justify-content: flex-start;
   margin: 0;
-  transition: all 225ms linear;
+  transition: all 0.2s ease-in-out;
   width: 35rem;
-  z-index: 999;
-  
-  
 }
 
-.search__header{
+.search__header {
   align-items: center;
-  border-bottom: .1rem solid #ccc;
+  border-bottom: 0.1rem solid #ccc;
   display: flex;
-  font-weight: bold;  
+  font-weight: bold;
   height: 6rem;
   justify-content: space-between;
   padding: 1rem;
   position: relative;
   text-transform: uppercase;
-  
-  span{
+
+  span {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -53,7 +61,7 @@
     }
   }
 
-  .search__close{
+  .search__close {
     background-color: transparent;
     border: none;
     color: #797979;
@@ -62,29 +70,28 @@
   }
 }
 
-.search__content{
+.search__content {
   background-color: #ffffff;
   overflow-y: scroll;
   padding: 0 1rem;
   text-align: center;
-   
-  .search__items{
-        display: flex;
-        flex-flow: column nowrap; 
-        list-style: none;
-        padding: 10px;  
-        text-decoration: none;
 
-      }
+  .search__items {
+    display: flex;
+    flex-flow: column nowrap;
+    list-style: none;
+    padding: 10px;
+    text-decoration: none;
+  }
 }
 
-.search__description{
+.search__description {
   display: flex;
   height: 90px;
   padding: 2% 0;
   box-shadow: 6px 6px 6px -6px #444444;
   margin-bottom: 2px;
-  .product__name{
+  .product__name {
     //width: 90px;
     text-align: left;
     font-size: 1.2rem;
@@ -92,33 +99,32 @@
     color: #444444;
     width: 100px;
   }
-  .product__price-search{
+  .product__price-search {
     font-size: 1.4rem;
     text-decoration: none;
     color: #444444;
     font-weight: bold;
-    }
-  .product__installments{
+  }
+  .product__installments {
     font-size: 11px;
     text-decoration: none;
     color: #444444;
   }
-  
 }
-.product__img{
+.product__img {
   padding: 10px;
 }
-.indisponivel{
+.indisponivel {
   width: 70px;
   height: 60px;
 }
-.product__info{
+.product__info {
   display: inline-flex;
   padding: 5% 2%;
   justify-content: space-between;
   width: 200px;
 }
-.product__info__price{
+.product__info__price {
   text-align: right;
   white-space: nowrap;
   text-decoration: none;
@@ -129,32 +135,33 @@
   //   margin-left: -73%;
   //   margin-top: 95%;
   //  }
-   .search__sidebar{
-     width: 100%;    
-   }
-   .search__header {
+  .search__sidebar {
+    width: 100%;
+  }
+  .search__header {
     height: 15rem;
     padding: 3rem;
-   }
-   .search__header span {
-     font-size: 22px;
-   }
-   .search__header span input {
-     height: 35px;
-     margin-bottom: 4px;
-     width: 70%;
-     background-color: #f7f7f7;
-   }
-   .product__info {
-   display: inline-flex;
-   padding: 2%;
-   width: 230px;
-   }
-   .search__description {
-     padding: 0 5%;
-     margin-bottom: 15px;
-     .product__name, .product__price {
-       font-size: 1.8rem;
-     }
-   }
-}  
+  }
+  .search__header span {
+    font-size: 22px;
+  }
+  .search__header span input {
+    height: 35px;
+    margin-bottom: 4px;
+    width: 70%;
+    background-color: #f7f7f7;
+  }
+  .product__info {
+    display: inline-flex;
+    padding: 2%;
+    width: 230px;
+  }
+  .search__description {
+    padding: 0 5%;
+    margin-bottom: 15px;
+    .product__name,
+    .product__price {
+      font-size: 1.8rem;
+    }
+  }
+}

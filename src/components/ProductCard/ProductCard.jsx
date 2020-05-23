@@ -6,12 +6,25 @@ import ImgDefault from '../../assets/images/indisponivel.png';
 import './ProductCard.scss';
 
 const ProductCard = ({ productInfo }) => (
-  <Link to={`/products/${slugify(productInfo.name)}?color=${productInfo.color_slug}`} className="product__card__container">
+  <Link
+    to={`/products/${slugify(productInfo.name)}?color=${
+      productInfo.color_slug
+    }`}
+    className="product__card__container"
+  >
     <div className="product__card__grid">
       <div className="product__card__item">
         <div class="product__card__image">
           <ul className="social">
-            <li><Link to={`/products/${slugify(productInfo.name)}?color=${productInfo.color_slug}`}><ion-icon name="add-circle-outline"></ion-icon></Link></li>
+            <li>
+              <Link
+                to={`/products/${slugify(productInfo.name)}?color=${
+                  productInfo.color_slug
+                }`}
+              >
+                <ion-icon name="add-circle-outline"></ion-icon>
+              </Link>
+            </li>
           </ul>
           {productInfo.image === '' ? (
             <img src={ImgDefault} />
@@ -25,7 +38,6 @@ const ProductCard = ({ productInfo }) => (
             <span className="product__card__discount__label">
               {productInfo.discount_percentage}
             </span>
-            
           </div>
         )}
       </div>

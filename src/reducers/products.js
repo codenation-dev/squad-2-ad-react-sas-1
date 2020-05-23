@@ -2,10 +2,12 @@ import { productsActionTypes } from '../constants/products';
 import { slugify } from '../modules/slugify';
 
 const INITIAL_STATE = {
-  products: [],
+  products: [], // mudar para catalog ou items
   lastRequest: null,
   product: {}, // mudar para catalogo
   cart: [],
+  product: {},
+  isOpenSearch: false
 };
 
 export const productsReducer = (state = INITIAL_STATE, action) => {
@@ -19,8 +21,6 @@ export const productsReducer = (state = INITIAL_STATE, action) => {
       };
 
     case productsActionTypes.SET_PRODUCT_DETAIL:
-      // logica da busca por slug(name) + color-slug
-
       const { slug, color } = payload;
       const catalog = state.products;
       return {
@@ -37,11 +37,8 @@ export const productsReducer = (state = INITIAL_STATE, action) => {
         cart: [...state.cart, payload],
       };
 
-    //   return {
-    //     item: [...state.all, item].filter((item) => item.name),
-    //   };
-
     default:
       return state;
   }
+
 };

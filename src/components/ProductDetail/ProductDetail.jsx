@@ -51,13 +51,11 @@ const ProductDetail = () => {
   return (
     <div className="product">
       <div className="product__body">
-
         <div className="product__image">
           <img src={selectedProduct.image} alt="nome do produto" />
         </div>
 
         <div className="product__details">
-
           <div className="product__price">
             <span className="product__price__price">
               {selectedProduct.actual_price}
@@ -83,7 +81,6 @@ const ProductDetail = () => {
           <div className="add__cart">
             <button className="btn__cart" onClick={() => handleAddItem(selectedSize)}>adicionar ao carrinho</button>
           </div>
-
         </div>
       </div>
     </div>
