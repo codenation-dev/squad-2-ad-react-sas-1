@@ -7,7 +7,8 @@ const INITIAL_STATE = {
   product: {}, // mudar para catalogo
   cart: [],
   product: {},
-  isOpenSearch: false
+  isOpenSearch: false,
+  productCart: {},
 };
 
 export const productsReducer = (state = INITIAL_STATE, action) => {
@@ -37,8 +38,15 @@ export const productsReducer = (state = INITIAL_STATE, action) => {
         cart: [...state.cart, payload],
       };
 
+    case productsActionTypes.SET_SIZE:
+      const { size } = payload;
+      const item = state.product;
+      return {
+        ...state,
+        productCart: item.find(({ size }) => item.size === size),
+      };
+
     default:
       return state;
   }
-
 };

@@ -8,4 +8,5 @@ export const productsActionTypes = {
   ADD_ITEM: 'ADD_ITEM',
   TOGGLE_SEARCH: 'TOGGLE_SEARCH',
   CLOSE_SEARCH: 'CLOSE_SEARCH',
+  SET_SIZE: 'SET_SIZE',
 };
