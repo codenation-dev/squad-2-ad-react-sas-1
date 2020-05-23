@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { numberParser } from '../../modules/numberParser';
 
@@ -41,14 +42,16 @@ const Cart = () => {
                   <div className="product__cart__qty">
                     <div className="product__qty__remove">
                       <div className="qty">
-                        <ion-icon className="add" name="add-circle"></ion-icon>
-                        <div className="input-box">1</div>
                         <ion-icon
                           className="remove"
                           name="remove-circle"
                         ></ion-icon>
+                        <div className="input-box">1</div>
+                        <ion-icon className="add" name="add-circle"></ion-icon>
                       </div>
-                      <div className="remove">REMOVER</div>
+                      <div className="remove-cart">
+                        <ion-icon name="trash-outline"></ion-icon>
+                      </div>
                     </div>
                   </div>
                   <div className="product__info__price">
@@ -59,10 +62,6 @@ const Cart = () => {
                       {selectedProduct.installments}
                     </p>
                   </div>
-                  <ion-icon className="remove" name="remove-circle"></ion-icon>
-                </div>
-                <div className="remove-cart">
-                  <ion-icon name="trash-outline"></ion-icon>
                 </div>
               </li>
             ))}
