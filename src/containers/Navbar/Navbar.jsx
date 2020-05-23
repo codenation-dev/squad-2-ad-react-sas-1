@@ -4,18 +4,26 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../services/products';
 import { getProductsRequest } from '../../actions/products';
 import { toggleSearch } from '../../actions/search';
-
 import { urlParser } from '../../modules/urlParser';
 
 import { ReactComponent as FashionistaLogo } from '../../assets/images/fashionista-logo.svg';
 import './Navbar.scss';
 
-const cartItems = [];
 
 function Navbar() {
-  const dispatch = useDispatch();
 
-  // const handleOpenSearch = () => setSearchStatus(false);
+  const [searchStatus, setSearchStatus] = useState(false);
+  
+  const handleClick = () => setSearchStatus(true);
+  const handleOpenSearch = () => setSearchStatus(false);
+  
+  const cartItems = useSelector((state) => state.products.cart);
+
+  useEffect(() => {
+
+  }, []);
+
+  const dispatch = useDispatch();
 
   const handleGetProducts = () => {
     getProducts().then((data) => dispatch(getProductsRequest(data)));

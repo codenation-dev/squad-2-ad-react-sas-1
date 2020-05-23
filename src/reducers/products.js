@@ -4,8 +4,10 @@ import { slugify } from '../modules/slugify';
 const INITIAL_STATE = {
   products: [], // mudar para catalog ou items
   lastRequest: null,
+  product: {}, // mudar para catalogo
+  cart: [],
   product: {},
-  isOpenSearch: false,
+  isOpenSearch: false
 };
 
 export const productsReducer = (state = INITIAL_STATE, action) => {
@@ -29,11 +31,14 @@ export const productsReducer = (state = INITIAL_STATE, action) => {
         ),
       };
 
+    case productsActionTypes.ADD_ITEM:
+      return {
+        ...state,
+        cart: [...state.cart, payload],
+      };
+
     default:
       return state;
   }
 
-  //   return {
-  //     item: [...state.all, item].filter((item) => item.name),
-  //   };
 };

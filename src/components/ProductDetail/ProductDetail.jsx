@@ -1,23 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../services/products';
-import { setProductDetail } from '../../actions/products';
-import { getProductsRequest } from '../../actions/products';
+import { setProductDetail, getProductsRequest, addItem } from '../../actions/products';
 import Loading from '../Loading/';
 import { urlParser } from '../../modules/urlParser';
 
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
+
   const selectedProduct = useSelector((state) => state.products.product);
   const products = useSelector((state) => state.products.products);
-  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.products.cart);
 
+  const [selectedSize, setSelectedSize] = useState(''); 
+  
+  const dispatch = useDispatch();
+  
   const handleGetProducts = () => {
     getProducts().then((data) => dispatch(getProductsRequest(data)));
   };
 
+  const handleAddItem = (sku) => dispatch(addItem(sku));
+
+  const handleSetSize = (sku) => setSelectedSize(sku);
+
   useEffect(() => {
+    console.log(cart);
+  }, [cart]);
+
+  useEffect(() => {
+
     if (products.length > 0) {
       const message = urlParser();
 
@@ -25,11 +38,15 @@ const ProductDetail = () => {
     } else {
       handleGetProducts();
     }
-  }, [products, selectedProduct]);
+  }, [products, selectedProduct, window.location.pathname]);
 
-  // if (!Object.keys(selectedProduct).length) {
-  //   return <Loading />;
-  // }
+  {/* console.log(selectedProduct); */}
+
+  if (!Object.keys(selectedProduct).length) {
+    return <Loading />;
+  }
+
+  {/* console.log(selectedSize); */}
 
   return (
     <div className="product">
@@ -55,17 +72,14 @@ const ProductDetail = () => {
           </div>
 
           <div className="product__size">
-            <span>P</span>
-            <span className="active">M</span>
-            <span>G</span>
-          </div>
-
-          <div className="product__quantity">
-            <input className="quantity" type="number"></input>
+            {selectedProduct.sizes && selectedProduct.sizes
+              .filter(({ available }) => available)
+              .map(item => <span key={item.sku} sku={item.sku} onClick={() => handleSetSize(item.sku)}>{item.size}</span>)
+            }
           </div>
 
           <div className="add__cart">
-            <button className="btn__cart">comprar</button>
+            <button className="btn__cart" onClick={() => handleAddItem(selectedSize)}>adicionar ao carrinho</button>
           </div>
         </div>
       </div>

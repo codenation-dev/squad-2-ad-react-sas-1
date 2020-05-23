@@ -5,15 +5,15 @@ import './Loading.scss';
 const Loading = () => {
   return (
     <React.Fragment>
-      <div aria-busy="true" aria-label="Loading" role="progressbar" class="loading__container">
-      <div class="swing">
-      <div class="swing-l"></div>
+      <div aria-busy="true" aria-label="Loading" role="progressbar" className="loading__container">
+      <div className="swing">
+      <div className="swing-l"></div>
       <div></div>
       <div></div>
       <div></div>
       <div></div>
       <div></div>
-      <div class="swing-r"></div>
+      <div className="swing-r"></div>
       </div></div>
     </React.Fragment>
   )

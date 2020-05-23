@@ -21,3 +21,10 @@ export const setProductDetail = ({ slug, color }) => {
     },
   };
 };
+
+export const addItem = (payload) => {
+  return {
+    type: productsActionTypes.ADD_ITEM,
+    payload,
+  }
+}
